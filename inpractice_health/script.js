@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Google Sheets Integration
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyqOfojN8gYmKNv0xD-ZCVNqwKqTWeZmHPdSbNZ8Dmnv2M9SHWRXqNVdBZ2rDtwHLNdBw/exec';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzicprp8_DdR1skDuIGqpxKWZ271KT3mMJmMjNp9fXQNWjuQo3-s0pVfi0GEgi9L2S4Gg/exec';
 
     // Form Handling
     ['form-clinic', 'form-partner'].forEach(formId => {
