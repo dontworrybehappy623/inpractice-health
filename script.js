@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 data.type = formId === 'form-clinic' ? 'Clinic' : 'Partner';
 
                 // If URL is not set, simulate only (for demo purposes)
-                if (GOOGLE_SCRIPT_URL === 'INSERT_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                if (GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/u/9/s/AKfycbzicprp8_DdR1skDuIGqpxKWZ271KT3mMJmMjNp9fXQNWjuQo3-s0pVfi0GEgi9L2S4Gg/exec') {
                     console.warn('Google Script URL not set. Simulating success.');
                     setTimeout(() => {
                         showSuccess();
