@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Google Sheets Integration
     // TODO: Follow the instructions in SETUP_SHEETS.md to get your URL
-    const GOOGLE_SCRIPT_URL = 'INSERT_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/u/9/s/AKfycbzicprp8_DdR1skDuIGqpxKWZ271KT3mMJmMjNp9fXQNWjuQo3-s0pVfi0GEgi9L2S4Gg/exec';
 
     // Form Handling
     ['form-clinic', 'form-partner'].forEach(formId => {
