@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Google Sheets Integration
     // TODO: Follow the instructions in SETUP_SHEETS.md to get your URL
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzicprp8_DdR1skDuIGqpxKWZ271KT3mMJmMjNp9fXQNWjuQo3-s0pVfi0GEgi9L2S4Gg/exec';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyrXkREhz0w8JB-a5cfR-XJerzfY0cko3n3sD4W3MX5xZuMXVUw2LU__bB4tuQGs_1NOw/exec';
 
     // Form Handling
     ['form-clinic', 'form-partner'].forEach(formId => {
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 data.type = formId === 'form-clinic' ? 'Clinic' : 'Partner';
 
                 // If URL is not set, simulate only (for demo purposes)
-                if (GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbzicprp8_DdR1skDuIGqpxKWZ271KT3mMJmMjNp9fXQNWjuQo3-s0pVfi0GEgi9L2S4Gg/exec') {
+                if (GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbyrXkREhz0w8JB-a5cfR-XJerzfY0cko3n3sD4W3MX5xZuMXVUw2LU__bB4tuQGs_1NOw/exec') {
                     console.warn('Google Script URL not set. Simulating success.');
                     setTimeout(() => {
                         showSuccess();
