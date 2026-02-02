@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
     // Modal Logic
     const modals = {
         clinic: document.getElementById('modal-clinic'),
@@ -95,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Google Sheets Integration
-    // TODO: Follow the instructions in SETUP_SHEETS.md to get your URL
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzicprp8_DdR1skDuIGqpxKWZ271KT3mMJmMjNp9fXQNWjuQo3-s0pVfi0GEgi9L2S4Gg/exec';
 
     // Form Handling
@@ -121,15 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Add type based on form ID
                 data.type = formId === 'form-clinic' ? 'Clinic' : 'Partner';
-
-                // If URL is not set, simulate only (for demo purposes)
-                if (GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbzicprp8_DdR1skDuIGqpxKWZ271KT3mMJmMjNp9fXQNWjuQo3-s0pVfi0GEgi9L2S4Gg/exec') {
-                    console.warn('Google Script URL not set. Simulating success.');
-                    setTimeout(() => {
-                        showSuccess();
-                    }, 1000);
-                    return;
-                }
 
                 // Send to Google Sheets
                 fetch(GOOGLE_SCRIPT_URL, {
@@ -164,5 +155,4 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
-
 });
