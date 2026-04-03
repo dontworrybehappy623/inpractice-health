@@ -385,6 +385,8 @@ img {
 }
 
 .hero-img-animated {
+    max-height: 650px;
+    width: auto;
     animation: hero-float 6s ease-in-out infinite;
     animation-delay: 1.8s;
 }
