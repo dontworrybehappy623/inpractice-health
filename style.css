@@ -350,7 +350,7 @@ img {
 .hero-visual img {
     width: 100%;
     height: auto;
-    max-height: 500px;
+    max-height: 650px;
     object-fit: cover;
     border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
     box-shadow: var(--shadow-xl);
@@ -385,8 +385,6 @@ img {
 }
 
 .hero-img-animated {
-    max-height: 650px;
-    width: auto;
     animation: hero-float 6s ease-in-out infinite;
     animation-delay: 1.8s;
 }
