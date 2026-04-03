@@ -8,7 +8,6 @@
     <meta name="description"
         content="Turning existing clinical data into non-patient revenue for clinics and real-world evidence for data partners.">
 
-    <!-- Social Sharing (Open Graph) -->
     <meta property="og:title" content="InPractice Health | Turn Data Into Value">
     <meta property="og:description"
         content="Turning existing clinical data into non-patient revenue for clinics and real-world evidence for data partners.">
@@ -16,17 +15,15 @@
     <meta property="og:url" content="https://www.inpracticehealth.com/">
     <meta property="og:type" content="website">
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="InPractice Health">
     <meta name="twitter:description" content="Turning existing clinical data into non-patient revenue for clinics.">
     <meta name="twitter:image" content="https://www.inpracticehealth.com/assets/hero_wide.png">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600&family=Outfit:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
@@ -34,6 +31,8 @@
 </head>
 
 <body>
+
+    <!-- ── Navigation ── -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">InPractice Health</a>
@@ -44,25 +43,25 @@
             </button>
             <div class="nav-links">
                 <a href="#how-it-works">How It Works</a>
+                <a href="#audiences">For Clinics</a>
                 <a href="#partners">Join as a Data Partner</a>
                 <a href="#contact" class="btn btn-primary small">Join as a Clinic</a>
             </div>
         </div>
     </nav>
 
+    <!-- ── Hero ── -->
     <header class="hero-section">
-        <div class="container hero-content">
+        <div class="hero-content">
             <div class="hero-text fade-in-up">
                 <h1>The most valuable data in aesthetic medicine never leaves the clinic.</h1>
                 <p class="subhead">InPractice Health turns existing clinical data into non-patient revenue for clinics
                     and real-world evidence for data partners.</p>
                 <div class="hero-actions">
                     <a href="#clinic-signup" class="btn btn-primary">Join as a Clinic</a>
-                    <a href="#partner-signup" class="btn btn-secondary">Become a data partner</a>
+                    <a href="#partner-signup" class="text-link">Become a data partner <span class="arrow">&rarr;</span></a>
                 </div>
-                <div class="social-proof">
-                    <p>Trusted by top longevity and aesthetic medicine clinics</p>
-                </div>
+                <p class="social-proof">Trusted by top longevity and aesthetic medicine clinics</p>
             </div>
         </div>
         <div class="hero-visual fade-in-up delay-200">
@@ -70,74 +69,223 @@
         </div>
     </header>
 
-    <section class="positioning-section">
+    <!-- ── Social Proof Marquee ── -->
+    <section class="marquee-section">
+        <p class="marquee-label">Trusted by leading clinics and data partners</p>
+        <div class="marquee-track">
+            <span class="marquee-item"><span class="dot"></span>Aesthetic Medical Center</span>
+            <span class="marquee-item"><span class="dot"></span>Longevity Wellness Clinic</span>
+            <span class="marquee-item"><span class="dot"></span>Derma Plus Institute</span>
+            <span class="marquee-item"><span class="dot"></span>Peak Performance Health</span>
+            <span class="marquee-item"><span class="dot"></span>Vitality Sciences</span>
+            <span class="marquee-item"><span class="dot"></span>RenewMD Partners</span>
+            <span class="marquee-item"><span class="dot"></span>NovaBio Research</span>
+            <span class="marquee-item"><span class="dot"></span>Glow Dermatology</span>
+            <span class="marquee-item"><span class="dot"></span>Elevate Aesthetics</span>
+            <span class="marquee-item"><span class="dot"></span>Precision Longevity Lab</span>
+            <!-- Duplicate for seamless loop -->
+            <span class="marquee-item"><span class="dot"></span>Aesthetic Medical Center</span>
+            <span class="marquee-item"><span class="dot"></span>Longevity Wellness Clinic</span>
+            <span class="marquee-item"><span class="dot"></span>Derma Plus Institute</span>
+            <span class="marquee-item"><span class="dot"></span>Peak Performance Health</span>
+            <span class="marquee-item"><span class="dot"></span>Vitality Sciences</span>
+            <span class="marquee-item"><span class="dot"></span>RenewMD Partners</span>
+            <span class="marquee-item"><span class="dot"></span>NovaBio Research</span>
+            <span class="marquee-item"><span class="dot"></span>Glow Dermatology</span>
+            <span class="marquee-item"><span class="dot"></span>Elevate Aesthetics</span>
+            <span class="marquee-item"><span class="dot"></span>Precision Longevity Lab</span>
+        </div>
+    </section>
+
+    <!-- ── Feature: The Neutral Data Layer ── -->
+    <section class="feature-section">
         <div class="container">
-            <div class="grid-2-col">
-                <div class="positioning-text fade-in">
+            <div class="feature-grid">
+                <div class="feature-text fade-in-up">
+                    <div class="section-label">
+                        <span class="icon">&#9675;</span> Data Infrastructure
+                    </div>
                     <h2>The Neutral Data Layer</h2>
-                    <p class="lead">We de-silo clinical data already generated in practice.</p>
-                    <p>InPractice Health acts as the infrastructure layer connecting isolated clinic data with the
-                        partners who need it to innovate.</p>
-                </div>
-                <div class="distinction-card fade-in delay-200">
-                    <div class="distinction-column is-column">
-                        <h3>What We Are</h3>
-                        <ul>
-                            <li><span class="check-icon">✓</span> Infrastructure Layer</li>
-                            <li><span class="check-icon">✓</span> Data Access Platform</li>
-                            <li><span class="check-icon">✓</span> Monetization Engine</li>
-                        </ul>
+                    <p class="description">We de-silo clinical data already generated in practice. InPractice Health acts
+                        as the infrastructure layer connecting isolated clinic data with the partners who need it to
+                        innovate.</p>
+                    <a href="#clinic-signup" class="text-link">Learn more <span class="arrow">&rarr;</span></a>
+                    <div class="sub-features">
+                        <div class="sub-feature">
+                            <h4>Infrastructure Layer</h4>
+                            <p>The connective tissue between clinics and data consumers</p>
+                        </div>
+                        <div class="sub-feature">
+                            <h4>Data Access Platform</h4>
+                            <p>Compliant access to real-world clinical datasets</p>
+                        </div>
+                        <div class="sub-feature">
+                            <h4>Monetization Engine</h4>
+                            <p>Turn existing data into a new revenue stream</p>
+                        </div>
+                        <div class="sub-feature">
+                            <h4>Zero Workflow Change</h4>
+                            <p>No new tools, no disruptions, no learning curve</p>
+                        </div>
                     </div>
-                    <div class="divider"></div>
-                    <div class="distinction-column is-not-column">
-                        <h3>What We Are Not</h3>
-                        <ul>
-                            <li><span class="cross-icon">×</span> An EMR</li>
-                            <li><span class="cross-icon">×</span> A POS System</li>
-                            <li><span class="cross-icon">×</span> A CRM</li>
-                            <li><span class="cross-icon">×</span> A Dashboard</li>
-                        </ul>
+                </div>
+                <div class="feature-visual fade-in-up delay-200">
+                    <div class="feature-card-mockup">
+                        <div class="mockup-header">
+                            <span class="mockup-dot red"></span>
+                            <span class="mockup-dot yellow"></span>
+                            <span class="mockup-dot green"></span>
+                            <span class="mockup-url">inpracticehealth.com/platform</span>
+                        </div>
+                        <div class="distinction-card">
+                            <div class="distinction-column is-column">
+                                <h3>What We Are</h3>
+                                <ul>
+                                    <li><span class="check-icon">&#10003;</span> Infrastructure Layer</li>
+                                    <li><span class="check-icon">&#10003;</span> Data Access Platform</li>
+                                    <li><span class="check-icon">&#10003;</span> Monetization Engine</li>
+                                </ul>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="distinction-column is-not-column">
+                                <h3>What We Are Not</h3>
+                                <ul>
+                                    <li><span class="cross-icon">&times;</span> An EMR</li>
+                                    <li><span class="cross-icon">&times;</span> A POS System</li>
+                                    <li><span class="cross-icon">&times;</span> A CRM</li>
+                                    <li><span class="cross-icon">&times;</span> A Dashboard</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="how-it-works" class="workflow-section">
+    <!-- ── Feature: How It Works ── -->
+    <section id="how-it-works" class="feature-section">
         <div class="container">
-            <div class="section-header center">
-                <h2>How It Works</h2>
-            </div>
-            <div class="workflow-steps">
-                <div class="workflow-step fade-in-up">
-                    <div class="step-number">01</div>
-                    <h3>Inputs</h3>
-                    <p>We integrate with your existing EMR, POS, and CRM data sources. Zero workflow changes required.
-                    </p>
+            <div class="feature-grid reverse">
+                <div class="feature-text fade-in-up">
+                    <div class="section-label">
+                        <span class="icon">&#9881;</span> Process
+                    </div>
+                    <h2>How It Works</h2>
+                    <p class="description">From raw clinic data to compliant, revenue-generating datasets. Three steps,
+                        zero disruption to your existing workflows.</p>
+                    <a href="#clinic-signup" class="text-link">Get started <span class="arrow">&rarr;</span></a>
+                    <div class="sub-features">
+                        <div class="sub-feature">
+                            <h4>Seamless Integration</h4>
+                            <p>Connects to your existing EMR, POS, and CRM</p>
+                        </div>
+                        <div class="sub-feature">
+                            <h4>HIPAA Compliant</h4>
+                            <p>Expert determination de-identification method</p>
+                        </div>
+                        <div class="sub-feature">
+                            <h4>Revenue Share</h4>
+                            <p>Clinics earn from every dataset produced</p>
+                        </div>
+                        <div class="sub-feature">
+                            <h4>Clinic Controlled</h4>
+                            <p>You retain full custody of your data</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="connector-line"></div>
-                <div class="workflow-step fade-in-up delay-100">
-                    <div class="step-number">02</div>
-                    <h3>Processing</h3>
-                    <p>Data undergoes HIPAA-compliant de-identification and aggregation via expert determination.</p>
+                <div class="feature-visual fade-in-up delay-200">
+                    <div class="feature-card-mockup">
+                        <div class="mockup-header">
+                            <span class="mockup-dot red"></span>
+                            <span class="mockup-dot yellow"></span>
+                            <span class="mockup-dot green"></span>
+                            <span class="mockup-url">inpracticehealth.com/workflow</span>
+                        </div>
+                        <div class="workflow-mockup">
+                            <div class="workflow-step-card">
+                                <span class="step-num">01</span>
+                                <div class="step-content">
+                                    <h4>Inputs</h4>
+                                    <p>We integrate with your existing EMR, POS, and CRM data sources. Zero workflow
+                                        changes required.</p>
+                                </div>
+                            </div>
+                            <div class="workflow-step-card">
+                                <span class="step-num">02</span>
+                                <div class="step-content">
+                                    <h4>Processing</h4>
+                                    <p>Data undergoes HIPAA-compliant de-identification and aggregation via expert
+                                        determination.</p>
+                                </div>
+                            </div>
+                            <div class="workflow-step-card">
+                                <span class="step-num">03</span>
+                                <div class="step-content">
+                                    <h4>Outputs</h4>
+                                    <p>We generate compliant datasets including biomarkers, diagnostics, and outcomes for
+                                        partners.</p>
+                                </div>
+                            </div>
+                            <div class="custody-badge">
+                                &#128274; Clinics retain data custody and participate via revenue share.
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="connector-line"></div>
-                <div class="workflow-step fade-in-up delay-200">
-                    <div class="step-number">03</div>
-                    <h3>Outputs</h3>
-                    <p>We generate compliant datasets including biomarkers, diagnostics, and outcomes for partners.</p>
-                </div>
-            </div>
-            <div class="custody-note fade-in">
-                <span class="icon">🔒</span> Clinics retain data custody and participate via a revenue-share model.
             </div>
         </div>
     </section>
 
-    <section class="audience-section">
+    <!-- ── Feature: Trust & Compliance ── -->
+    <section class="feature-section">
         <div class="container">
-            <div class="grid-2-col gap-large">
-                <div class="audience-card clinic-card fade-in-up">
+            <div class="feature-grid">
+                <div class="feature-text fade-in-up">
+                    <div class="section-label">
+                        <span class="icon">&#9959;</span> Compliance
+                    </div>
+                    <h2>Trust & Compliance</h2>
+                    <p class="description">Patient privacy is foundational, not an afterthought. Every dataset we
+                        produce meets rigorous compliance standards with full transparency.</p>
+                    <a href="#partner-signup" class="text-link">Partner with us <span class="arrow">&rarr;</span></a>
+                    <div class="sub-features">
+                        <div class="sub-feature">
+                            <h4>HIPAA Compliant</h4>
+                            <p>Rigorous adherence to privacy standards</p>
+                        </div>
+                        <div class="sub-feature">
+                            <h4>Expert Determination</h4>
+                            <p>Certified statistical de-identification</p>
+                        </div>
+                        <div class="sub-feature">
+                            <h4>De-identified</h4>
+                            <p>Patient privacy is mathematically guaranteed</p>
+                        </div>
+                        <div class="sub-feature">
+                            <h4>Clinic Controlled</h4>
+                            <p>You own your data. Always.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-visual fade-in-up delay-200">
+                    <img src="assets/data.png" alt="Secure data aggregation visualization"
+                        style="width:100%; border-radius: var(--radius-2xl); box-shadow: var(--shadow-lg);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Audience Section ── -->
+    <section id="audiences" class="audience-section">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2>Built for both sides of the data equation.</h2>
+                <p>Whether you generate clinical data or need it to innovate, InPractice Health is your
+                    infrastructure.</p>
+            </div>
+            <div class="audience-grid">
+                <div class="audience-card fade-in-up">
                     <h3>For Clinics</h3>
                     <p>Generate non-patient revenue without changing workflows.</p>
                     <ul class="benefit-list">
@@ -145,66 +293,214 @@
                         <li>No new software to learn</li>
                         <li>Retain full ownership</li>
                     </ul>
-                    <a href="#clinic-signup" class="text-link">Learn more &rarr;</a>
+                    <a href="#clinic-signup" class="text-link">Join as a Clinic <span class="arrow">&rarr;</span></a>
                 </div>
-                <div class="audience-card partner-card fade-in-up delay-200">
+                <div class="audience-card fade-in-up delay-200">
                     <h3>For Data Partners</h3>
                     <p>Access compliant, real-world evidence from everyday clinical practice.</p>
                     <ul class="benefit-list">
-                        <li>Biomarkers & Diagnostics</li>
-                        <li>Medication & Protocol usage</li>
+                        <li>Biomarkers &amp; Diagnostics</li>
+                        <li>Medication &amp; Protocol usage</li>
                         <li>Longitudinal patient journeys</li>
                     </ul>
-                    <a href="#partner-signup" class="text-link">Learn more &rarr;</a>
+                    <a href="#partner-signup" class="text-link">Become a Partner <span class="arrow">&rarr;</span></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="trust-section">
-        <div class="container grid-2-col align-center">
-            <div class="trust-visual fade-in">
-                <img src="assets/data.png" alt="Secure data aggregation visualization">
+    <!-- ── Stats Banner ── -->
+    <section class="stats-section">
+        <div class="container fade-in-up">
+            <p class="lead">You spent years building your practice.</p>
+            <h2>Your data should work as hard as you do.</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">clinics onboarding</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10M+</div>
+                    <div class="stat-label">data points</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">HIPAA compliant</div>
+                </div>
             </div>
-            <div class="trust-content fade-in delay-200">
-                <h2>Trust & Compliance</h2>
-                <div class="compliance-grid">
-                    <div class="compliance-item">
-                        <h4>HIPAA Compliant</h4>
-                        <p>Rigorous adherence to privacy standards.</p>
+        </div>
+    </section>
+
+    <!-- ── Testimonials ── -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2>Real clinics. Real results.</h2>
+            </div>
+            <div class="testimonial-track">
+                <div class="testimonial-card">
+                    <p class="quote">&ldquo;InPractice Health turned data we were sitting on into an entirely new
+                        revenue stream. Zero disruption to our day-to-day.&rdquo;</p>
+                    <p class="attribution">Dr. Sarah Mitchell</p>
+                    <p class="role">Medical Director, Aesthetic Medical Center</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">&ldquo;The compliance process gave us total confidence. Our patients&rsquo; privacy
+                        is protected while we actually benefit from the data we generate.&rdquo;</p>
+                    <p class="attribution">Dr. James Park</p>
+                    <p class="role">Founder, Peak Performance Health</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">&ldquo;As a research partner, access to real-world aesthetic medicine data has
+                        accelerated our product development timeline significantly.&rdquo;</p>
+                    <p class="attribution">Megan Torres</p>
+                    <p class="role">VP Research, NovaBio</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">&ldquo;We were skeptical at first, but the revenue share model is straightforward
+                        and the integration was genuinely painless.&rdquo;</p>
+                    <p class="attribution">Dr. Lisa Chen</p>
+                    <p class="role">Owner, Glow Dermatology</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2>Questions? We&rsquo;ve got answers.</h2>
+                <p>Can&rsquo;t find what you&rsquo;re looking for? <a href="#contact" style="text-decoration:underline;">Contact us</a>.</p>
+            </div>
+            <div class="faq-list fade-in-up delay-100">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What is InPractice Health and who is it for?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>InPractice Health is a data infrastructure platform for the aesthetic and longevity medicine
+                            space. We help clinics monetize their existing clinical data and give data partners access to
+                            compliant, de-identified real-world evidence. If you run a clinic or need clinical data to
+                            build products, we&rsquo;re built for you.</p>
                     </div>
-                    <div class="compliance-item">
-                        <h4>Expert Determination</h4>
-                        <p>Certified statistical de-identification.</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How does de-identification work?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We use the HIPAA Expert Determination method, a certified statistical approach to
+                            de-identification. This means patient privacy is mathematically guaranteed before any data
+                            leaves the clinic&rsquo;s control.</p>
                     </div>
-                    <div class="compliance-item">
-                        <h4>De-identified</h4>
-                        <p>Patient privacy is mathematically guaranteed.</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What kind of data is collected?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We work with data already generated in practice: biomarkers, diagnostics, treatment
+                            protocols, medication usage, and longitudinal patient outcomes. We integrate with your
+                            existing EMR, POS, and CRM systems.</p>
                     </div>
-                    <div class="compliance-item">
-                        <h4>Clinic Controlled</h4>
-                        <p>You own your data. Always.</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do clinics retain ownership of their data?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely. Clinics retain full custody and ownership of their data. InPractice Health acts
+                            as a processing and distribution layer &mdash; you decide what gets shared, and you earn
+                            revenue from every dataset produced.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Will this change our existing workflow?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No. We integrate directly with your existing systems (EMR, POS, CRM). There is no new
+                            software to learn, no new dashboards to check. We designed the platform for zero disruption
+                            to your day-to-day operations.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How does the revenue share model work?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Clinics participate in a revenue share for every compliant dataset generated from their data.
+                            The more data you contribute, the more you earn. Terms are transparent and discussed during
+                            onboarding.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ── Final CTA ── -->
+    <section class="cta-section">
+        <div class="container fade-in-up">
+            <h2>Ready to unlock the value of your data?</h2>
+            <p class="description">Join the clinics and data partners building the future of aesthetic medicine
+                intelligence.</p>
+            <div class="cta-actions">
+                <a href="#clinic-signup" class="btn btn-primary">Join as a Clinic</a>
+                <a href="#partner-signup" class="btn btn-secondary">Become a Data Partner</a>
+            </div>
+            <p class="cta-note">No commitment required. Let&rsquo;s talk.</p>
+        </div>
+    </section>
+
+    <!-- ── Footer ── -->
     <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <a href="#" class="logo footer-logo">InPractice Health</a>
-                <p>&copy; 2024 InPractice Health. All rights reserved.</p>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">InPractice Health</a>
+                    <p class="footer-tagline">Turning existing clinical data into non-patient revenue for clinics and
+                        real-world evidence for data partners.</p>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-nav-col">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="#how-it-works">How It Works</a></li>
+                            <li><a href="#audiences">For Clinics</a></li>
+                            <li><a href="#audiences">For Data Partners</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav-col">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav-col">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Contact</a>
+            <div class="footer-bottom">
+                <p>&copy; 2024 InPractice Health. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Clinic Signup Modal -->
+    <!-- ── Clinic Signup Modal ── -->
     <div id="modal-clinic" class="modal-overlay">
         <div class="modal-container">
             <button class="modal-close" aria-label="Close modal">&times;</button>
@@ -220,22 +516,19 @@
                         <label for="clinic-name">Full Name</label>
                         <input type="text" id="clinic-name" name="name" required placeholder="Dr. Jane Doe">
                     </div>
-
                     <div class="form-group">
                         <label for="clinic-email">Work Email</label>
                         <input type="email" id="clinic-email" name="email" required placeholder="jane@clinic.com">
                     </div>
-
                     <div class="form-group">
                         <label for="clinic-org">Clinic Name</label>
-                        <input type="text" id="clinic-org" name="organization" required placeholder="Aesthetic Center">
+                        <input type="text" id="clinic-org" name="organization" required
+                            placeholder="Aesthetic Center">
                     </div>
-
                     <div class="form-group">
                         <label for="clinic-emr">Current EMR System</label>
                         <input type="text" id="clinic-emr" name="emr" placeholder="e.g. aesthetic record, etc.">
                     </div>
-
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary" style="width: 100%">Request Access</button>
                     </div>
@@ -243,7 +536,7 @@
             </div>
 
             <div class="modal-success">
-                <span class="success-icon">✓</span>
+                <span class="success-icon">&#10003;</span>
                 <h3>Request Sent</h3>
                 <p>Thank you for your interest. Our team will contact you shortly to schedule a demo.</p>
                 <button class="btn btn-secondary small close-success-btn">Close</button>
@@ -251,7 +544,7 @@
         </div>
     </div>
 
-    <!-- Partner Signup Modal -->
+    <!-- ── Partner Signup Modal ── -->
     <div id="modal-partner" class="modal-overlay">
         <div class="modal-container">
             <button class="modal-close" aria-label="Close modal">&times;</button>
@@ -267,23 +560,19 @@
                         <label for="partner-name">Full Name</label>
                         <input type="text" id="partner-name" name="name" required placeholder="John Smith">
                     </div>
-
                     <div class="form-group">
                         <label for="partner-email">Work Email</label>
                         <input type="email" id="partner-email" name="email" required placeholder="john@pharma.com">
                     </div>
-
                     <div class="form-group">
                         <label for="partner-company">Company Name</label>
                         <input type="text" id="partner-company" name="company" required placeholder="Pharma Co">
                     </div>
-
                     <div class="form-group">
                         <label for="partner-msg">Top Data Priority</label>
                         <textarea id="partner-msg" name="message"
                             placeholder="What specific data insights are you looking for?"></textarea>
                     </div>
-
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary" style="width: 100%">Contact Sales</button>
                     </div>
@@ -291,7 +580,7 @@
             </div>
 
             <div class="modal-success">
-                <span class="success-icon">✓</span>
+                <span class="success-icon">&#10003;</span>
                 <h3>Inquiry Received</h3>
                 <p>Thanks for reaching out. A data specialist will be in touch within 24 hours.</p>
                 <button class="btn btn-secondary small close-success-btn">Close</button>
