@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InPractice Health | Insight Demo</title>
+    <meta name="description" content="Preview the intelligence layer that turns de-identified clinical data into actionable findings.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="demo.css">
+</head>
+
+<body>
+
+    <!-- ── Password Gate ── -->
+    <div id="gate" class="gate-overlay">
+        <div class="gate-card">
+            <div class="gate-header">
+                <span class="gate-icon">&#9670;</span>
+                <h3>InPractice Health</h3>
+                <p>Preview real-world clinical insights from de-identified data across aesthetic clinics.</p>
+            </div>
+            <form id="gate-form">
+                <div class="form-group">
+                    <label for="gate-password">Access Code</label>
+                    <input type="password" id="gate-password" name="password" required placeholder="Enter code" autocomplete="off">
+                    <p id="gate-error" class="gate-error"></p>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" style="width:100%">Enter Demo</button>
+                </div>
+            </form>
+            <div class="gate-trust">
+                <span>&#9959; HIPAA Compliant</span>
+                <span class="gate-trust-sep"></span>
+                <span>&#128274; De-identified Data</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Demo Content (hidden until authenticated) ── -->
+    <div id="demo-app" class="demo-app" style="display:none">
+
+        <!-- ── Navigation ── -->
+        <nav class="navbar">
+            <div class="container nav-container">
+                <a href="index.html" class="logo">InPractice Health</a>
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-links">
+                    <a href="index.html">Back to Home</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ── Hero Banner ── -->
+        <header class="demo-hero">
+            <div class="container">
+                <div class="demo-hero-content fade-in-up">
+                    <div class="section-label" style="justify-content:center">
+                        <span class="icon" style="background-color:var(--color-accent-light);color:var(--color-accent)">&#9670;</span>
+                        Demo Preview
+                    </div>
+                    <h2>Explore Clinical Insights</h2>
+                    <p class="subhead">Preview the intelligence layer that turns de-identified clinical data into actionable findings.</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- ── Category Chips ── -->
+        <section class="demo-categories">
+            <div class="container">
+                <div id="category-chips" class="category-chips fade-in-up delay-100">
+                    <button class="category-chip active" data-category="all">
+                        <span class="chip-dot" style="background-color:var(--color-accent)"></span>All
+                    </button>
+                    <button class="category-chip" data-category="treatment_outcomes">
+                        <span class="chip-dot" style="background-color:#0F766E"></span>Treatment Outcomes
+                    </button>
+                    <button class="category-chip" data-category="provider_intelligence">
+                        <span class="chip-dot" style="background-color:#1D4ED8"></span>Provider Intelligence
+                    </button>
+                    <button class="category-chip" data-category="product_substance">
+                        <span class="chip-dot" style="background-color:#7C3AED"></span>Product &amp; Substance
+                    </button>
+                    <button class="category-chip" data-category="patient_cohorts">
+                        <span class="chip-dot" style="background-color:#B45309"></span>Patient Cohorts
+                    </button>
+                    <button class="category-chip" data-category="market_trends">
+                        <span class="chip-dot" style="background-color:#059669"></span>Market Trends
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Feed Controls ── -->
+        <section class="demo-controls">
+            <div class="container">
+                <div class="feed-toolbar fade-in-up delay-200">
+                    <div class="search-wrap">
+                        <span class="search-icon">&#8981;</span>
+                        <input type="text" id="search-input" class="search-input" placeholder="Search insights...">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Insight Feed ── -->
+        <section class="demo-feed">
+            <div class="container">
+                <p id="result-count" class="result-count"></p>
+                <div id="insight-grid" class="insight-grid"></div>
+            </div>
+        </section>
+
+        <!-- ── Create Your Own Teaser ── -->
+        <section class="demo-teaser">
+            <div class="container fade-in-up">
+                <div class="teaser-badge">&#9733; Coming Soon</div>
+                <h2>Build Custom Insights from Your Data</h2>
+                <p class="description">Query the knowledge graph in plain language. Define cohorts, compare outcomes, and generate insights from your own data.</p>
+                <div class="teaser-input-wrap">
+                    <input type="text" class="teaser-input" placeholder="e.g. Compare botox outcomes for forehead lines across clinics..." disabled>
+                </div>
+                <a href="#clinic-signup" class="btn btn-primary" id="teaser-cta">Request Early Access</a>
+            </div>
+        </section>
+
+        <!-- ── Footer ── -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo">InPractice Health</a>
+                        <p class="footer-tagline">Turning existing clinical data into non-patient revenue for clinics and real-world evidence for data partners.</p>
+                    </div>
+                    <div class="footer-nav">
+                        <div class="footer-nav-col">
+                            <h4>Product</h4>
+                            <ul>
+                                <li><a href="index.html#how-it-works">How It Works</a></li>
+                                <li><a href="index.html#audiences">For Clinics</a></li>
+                                <li><a href="index.html#audiences">For Data Partners</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-nav-col">
+                            <h4>Company</h4>
+                            <ul>
+                                <li><a href="index.html">About</a></li>
+                                <li><a href="index.html#contact">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-nav-col">
+                            <h4>Legal</h4>
+                            <ul>
+                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                <li><a href="terms-of-service.html">Terms of Service</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 InPractice Health. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- ── Detail Modal ── -->
+    <div id="detail-modal" class="modal-overlay">
+        <div class="modal-container detail-modal-container">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div id="detail-content"></div>
+        </div>
+    </div>
+
+    <!-- ── Clinic Signup Modal (for CTA links) ── -->
+    <div id="modal-clinic" class="modal-overlay">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Request Access</h3>
+                    <p>Get full access to insights and the upcoming self-service query builder.</p>
+                </div>
+                <form class="signup-form" id="form-clinic">
+                    <div class="form-group">
+                        <label for="clinic-name">Full Name</label>
+                        <input type="text" id="clinic-name" name="name" required placeholder="Dr. Jane Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="clinic-email">Work Email</label>
+                        <input type="email" id="clinic-email" name="email" required placeholder="jane@clinic.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="clinic-org">Organization</label>
+                        <input type="text" id="clinic-org" name="organization" required placeholder="Clinic or Company Name">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" style="width:100%">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-success">
+                <span class="success-icon">&#10003;</span>
+                <h3>Request Sent</h3>
+                <p>Thank you for your interest. Our team will contact you shortly.</p>
+                <button class="btn btn-secondary small close-success-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="demo.js?v=2"></script>
+</body>
+
+</html>
