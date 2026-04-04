@@ -419,6 +419,8 @@ img {
     border-top: 1px solid var(--color-border-light);
     border-bottom: 1px solid var(--color-border-light);
     overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
 
 .marquee-label {

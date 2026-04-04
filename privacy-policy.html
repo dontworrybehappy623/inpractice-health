@@ -19,6 +19,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal.css">
 </head>
 
 <body>
@@ -260,6 +261,7 @@
                         <ul>
                             <li><a href="privacy-policy.html">Privacy Policy</a></li>
                             <li><a href="terms-of-service.html">Terms of Service</a></li>
+                            <li><a href="#cookie-preferences">Cookie Preferences</a></li>
                         </ul>
                     </div>
                 </div>
@@ -270,6 +272,53 @@
         </div>
     </footer>
 
+    <!-- ── Cookie Consent Banner ── -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>We use cookies to improve your experience. By continuing to visit this site you agree to our use of cookies.</p>
+        <div class="cookie-banner-actions">
+            <button id="cookie-accept-all" class="btn btn-primary small">Accept All</button>
+            <button id="cookie-manage" class="btn btn-secondary small">Manage Preferences</button>
+        </div>
+    </div>
+
+    <!-- ── Cookie Preferences Modal ── -->
+    <div id="modal-cookie" class="modal-overlay">
+        <div class="modal-container cookie-modal-container">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+
+            <div class="cookie-modal-header">
+                <h3>Cookie Preferences</h3>
+                <p>Choose which cookies you allow. Essential cookies are required for the site to function.</p>
+            </div>
+
+            <div class="cookie-options">
+                <div class="cookie-option">
+                    <div class="cookie-option-info">
+                        <h4>Essential Cookies</h4>
+                        <p>Required for the website to function properly. These cannot be disabled.</p>
+                    </div>
+                    <span class="cookie-always-on">Always on</span>
+                </div>
+
+                <div class="cookie-option">
+                    <div class="cookie-option-info">
+                        <h4>Non-essential Cookies</h4>
+                        <p>Used for analytics and to improve your browsing experience.</p>
+                    </div>
+                    <label class="cookie-toggle">
+                        <input type="checkbox" id="cookie-nonessential" checked>
+                        <span class="cookie-toggle-track"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="cookie-modal-footer">
+                <button id="cookie-save" class="btn btn-primary" style="width: 100%">Save Preferences</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
