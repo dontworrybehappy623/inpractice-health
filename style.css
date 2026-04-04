@@ -413,7 +413,9 @@ img {
    MARQUEE (Social Proof Ticker)
    ══════════════════════════════════════ */
 
+/* Temporarily hidden: section markup unchanged; remove display:none to show again. */
 .marquee-section {
+    display: none;
     padding: 3rem 0;
     background-color: var(--color-bg-alt);
     border-top: 1px solid var(--color-border-light);
@@ -820,7 +822,9 @@ img {
    TESTIMONIALS
    ══════════════════════════════════════ */
 
+/* Temporarily hidden: section markup unchanged; remove display:none to show again. */
 .testimonials-section {
+    display: none;
     padding: 7rem 0;
     background-color: var(--color-bg-alt);
 }
