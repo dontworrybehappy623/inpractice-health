@@ -264,17 +264,75 @@ img {
 .nav-links {
     display: flex;
     align-items: center;
+    gap: 2rem;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.nav-links-main {
+    display: flex;
+    align-items: center;
     gap: 2.25rem;
 }
 
-.nav-links a:not(.btn) {
+.nav-links-main a {
     font-size: 0.9rem;
     color: var(--color-text-secondary);
     font-weight: 450;
 }
 
-.nav-links a:not(.btn):hover {
+.nav-links-main a:hover {
     color: var(--color-text-primary);
+}
+
+/* Legal and other pages: single link without .nav-links-main */
+.nav-links > a:not(.btn) {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    font-weight: 450;
+}
+
+.nav-links > a:not(.btn):hover {
+    color: var(--color-text-primary);
+}
+
+.nav-links-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-left: 1.75rem;
+    padding-left: 1.75rem;
+    border-left: 1px solid var(--color-border-light);
+}
+
+.nav-action-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg);
+    white-space: nowrap;
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-action-secondary:hover {
+    border-color: var(--color-text-tertiary);
+    background-color: var(--color-bg-alt);
+    color: var(--color-text-primary);
+    transform: none;
+    box-shadow: none;
+}
+
+.nav-cta-demo {
+    padding: 0.55rem 1.4rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-left: 0.35rem;
 }
 
 /* ══════════════════════════════════════
@@ -350,7 +408,7 @@ img {
 .hero-visual img {
     width: 100%;
     height: auto;
-    max-height: 650px;
+    max-height: 682px;
     object-fit: cover;
     border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
     box-shadow: var(--shadow-xl);
@@ -1149,10 +1207,36 @@ img {
         transition: right 0.3s ease;
         padding: 2rem;
         z-index: 1000;
+        flex: unset;
     }
 
     .nav-links.active {
         right: 0;
+    }
+
+    .nav-links-main {
+        flex-direction: column;
+        gap: 1.75rem;
+    }
+
+    .nav-links-actions {
+        flex-direction: column;
+        margin-left: 0;
+        padding-left: 0;
+        border-left: none;
+        gap: 0.75rem;
+        width: 100%;
+    }
+
+    .nav-action-secondary {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        white-space: normal;
+    }
+
+    .nav-cta-demo {
+        margin-left: 0;
     }
 
     .nav-links .btn {
