@@ -436,7 +436,7 @@ img {
     margin-bottom: 0;
 }
 
-/* Hero: static insight cards (non-interactive; styles from demo.css) */
+/* Hero: insight preview cards (base from demo.css; entrance and hover below) */
 .hero-insight-sneak {
     width: 100%;
 }
@@ -485,15 +485,66 @@ img {
     }
 }
 
-.hero-insight-sneak .insight-card {
-    cursor: default;
-    margin: 0;
+@media (max-width: 1023px) {
+    .hero-insight-sneak-grid .insight-card:nth-child(3) {
+        display: none;
+    }
 }
 
-.hero-insight-sneak .insight-card:hover {
-    transform: none;
-    box-shadow: none;
-    border-color: var(--color-border);
+@keyframes hero-insight-card-in {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-insight-sneak .hero-insight-sneak-grid .insight-card {
+    cursor: default;
+    margin: 0;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.hero-insight-sneak:not(.visible) .hero-insight-sneak-grid .insight-card {
+    opacity: 0;
+    transform: translateY(16px);
+}
+
+.hero-insight-sneak.visible .hero-insight-sneak-grid .insight-card {
+    animation: hero-insight-card-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-insight-sneak.visible .hero-insight-sneak-grid .insight-card:nth-child(1) {
+    animation-delay: 0.06s;
+}
+
+.hero-insight-sneak.visible .hero-insight-sneak-grid .insight-card:nth-child(2) {
+    animation-delay: 0.12s;
+}
+
+.hero-insight-sneak.visible .hero-insight-sneak-grid .insight-card:nth-child(3) {
+    animation-delay: 0.18s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .hero-insight-sneak .hero-insight-sneak-grid .insight-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--color-accent-light);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-insight-sneak:not(.visible) .hero-insight-sneak-grid .insight-card,
+    .hero-insight-sneak.visible .hero-insight-sneak-grid .insight-card {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
 }
 
 .hero-insight-sneak .card-bottom {
