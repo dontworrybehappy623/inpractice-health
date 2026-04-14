@@ -152,6 +152,15 @@
     flex-shrink: 0;
 }
 
+.gate-disclaimer {
+    text-align: center;
+    font-size: 0.7rem;
+    font-style: italic;
+    color: var(--color-text-tertiary);
+    margin-top: 1rem;
+    letter-spacing: 0.01em;
+}
+
 /* ══════════════════════════════════════
    DEMO HERO
    ══════════════════════════════════════ */
@@ -176,6 +185,14 @@
     line-height: 1.7;
     max-width: 600px;
     margin: 0 auto;
+}
+
+.demo-disclaimer {
+    font-size: 0.78rem;
+    font-style: italic;
+    color: var(--color-text-tertiary);
+    margin-top: 0.75rem;
+    letter-spacing: 0.01em;
 }
 
 /* ══════════════════════════════════════
