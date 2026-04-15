@@ -1147,6 +1147,110 @@ const CLINIC_POOL = [
     'Atlas Dermatology', 'Summit Skin Clinic', 'Crest Med Spa',
 ];
 
+// ══════════════════════════════════════
+//  SYNTHETIC POOL (Insight Generator)
+// ══════════════════════════════════════
+
+const POOL_CONDITIONS = [
+    'Fine lines', 'Volume loss', 'Acne scarring', 'Rosacea', 'Skin laxity',
+    'Hyperpigmentation', 'Excessive sweating', 'Body contouring', 'Melasma',
+    'Vascular lesions', 'Neck laxity', 'Texture irregularity',
+];
+const POOL_SUBSTANCES = [
+    'Botox', 'Dysport', 'Xeomin', 'Jeuveau', 'DAXXIFY',
+    'Juvederm Voluma', 'Restylane Lyft', 'Sculptra', 'Radiesse',
+    'RHA Collection', 'Belotero', 'Kybella',
+    'Semaglutide', 'Tirzepatide',
+];
+const POOL_DEVICES = [
+    'Morpheus8', 'BBL HERO', 'Ultherapy', 'Thermage FLX', 'Sofwave',
+    'CoolSculpting', 'Potenza', 'Genius RF', 'Gentle Pro', 'Vivace',
+    'Candela Nordlys', 'Sciton MOXI',
+];
+const POOL_ANATOMY = [
+    'Forehead', 'Glabella', 'Periorbital', 'Midface', 'Perioral',
+    'Chin', 'Jawline', 'Neck', 'Abdomen', 'Flanks',
+    'Upper arms', 'Thighs', 'Decolletage',
+];
+const POOL_ENCOUNTER_TYPES = ['consultation', 'follow_up', 'procedure_visit', 'lab_visit', 'telehealth'];
+const POOL_INTERVENTION_CATS = ['procedure', 'therapy_protocol', 'lifestyle_plan', 'product_regimen'];
+
+// Weighted correlation tables: condition -> likely substances/devices/anatomy
+const CONDITION_PROFILES = {
+    'Fine lines':           { substances: [0,1,2,3,4], devices: [], anatomy: [0,1,2] },
+    'Volume loss':          { substances: [5,6,7,8,9,10], devices: [], anatomy: [3,4,5,6] },
+    'Acne scarring':        { substances: [], devices: [0,6,7,9], anatomy: [3,4] },
+    'Rosacea':              { substances: [], devices: [1,10], anatomy: [3,2] },
+    'Skin laxity':          { substances: [7,8], devices: [2,3,4], anatomy: [5,6,7] },
+    'Hyperpigmentation':    { substances: [], devices: [1,11,10], anatomy: [3,12] },
+    'Excessive sweating':   { substances: [0,1], devices: [], anatomy: [8,10,11] },
+    'Body contouring':      { substances: [12,13], devices: [5], anatomy: [8,9,11] },
+    'Melasma':              { substances: [], devices: [1,11], anatomy: [0,3] },
+    'Vascular lesions':     { substances: [], devices: [1,10], anatomy: [3,7,12] },
+    'Neck laxity':          { substances: [7,8], devices: [2,3,4], anatomy: [7] },
+    'Texture irregularity': { substances: [], devices: [0,6,11], anatomy: [3,4,12] },
+};
+
+function generateSyntheticPool() {
+    const rng = mulberry32(20260414);
+    const pick = (arr) => arr[Math.floor(rng() * arr.length)];
+    const ri = (min, max) => Math.floor(rng() * (max - min + 1)) + min;
+
+    const SIZE = 8247;
+    const pool = new Array(SIZE);
+    const now = new Date('2026-04-14');
+
+    for (let i = 0; i < SIZE; i++) {
+        const condition = pick(POOL_CONDITIONS);
+        const profile = CONDITION_PROFILES[condition];
+
+        // Correlated substance: 70% from profile, 30% random
+        let substance;
+        if (profile.substances.length && rng() < 0.7) {
+            substance = POOL_SUBSTANCES[pick(profile.substances)];
+        } else {
+            substance = pick(POOL_SUBSTANCES);
+        }
+
+        // Correlated device: 70% from profile, 30% random (null 20% of time if no profile devices)
+        let device;
+        if (profile.devices.length && rng() < 0.7) {
+            device = POOL_DEVICES[pick(profile.devices)];
+        } else {
+            device = rng() < 0.8 ? pick(POOL_DEVICES) : null;
+        }
+
+        // Correlated anatomy: 75% from profile
+        let anatomy;
+        if (profile.anatomy.length && rng() < 0.75) {
+            anatomy = POOL_ANATOMY[pick(profile.anatomy)];
+        } else {
+            anatomy = pick(POOL_ANATOMY);
+        }
+
+        const d = new Date(now);
+        d.setDate(d.getDate() - ri(1, 730));
+
+        const sexRoll = rng();
+        pool[i] = {
+            patient_id: 'PT-' + String(i + 1).padStart(5, '0'),
+            age: ri(18, 82),
+            sex_at_birth: sexRoll < 0.72 ? 'female' : sexRoll < 0.95 ? 'male' : sexRoll < 0.98 ? 'intersex' : 'unknown',
+            clinic: pick(CLINIC_POOL),
+            encounter_type: pick(POOL_ENCOUNTER_TYPES),
+            occurred_at: d.toISOString().split('T')[0],
+            condition,
+            intervention_category: pick(POOL_INTERVENTION_CATS),
+            substance,
+            device,
+            anatomy_region: anatomy,
+        };
+    }
+    return pool;
+}
+
+const SYNTHETIC_POOL = generateSyntheticPool();
+
 const COHORT_CONFIGS = {
     'market-neuro-switch': {
         age: [22, 72], female: 0.78, months: 18,
@@ -1910,10 +2014,13 @@ clinicForm.addEventListener('submit', (e) => {
     success.style.display = 'block';
 });
 
-document.getElementById('teaser-cta').addEventListener('click', (e) => {
-    e.preventDefault();
-    openClinicModal();
-});
+const teaserCta = document.getElementById('teaser-cta');
+if (teaserCta) {
+    teaserCta.addEventListener('click', (e) => {
+        e.preventDefault();
+        openClinicModal();
+    });
+}
 
 
 // ══════════════════════════════════════
@@ -2058,5 +2165,478 @@ document.addEventListener('keydown', (e) => {
         else if (clinicModal.classList.contains('open')) closeClinicModal();
     }
 });
+
+
+// ══════════════════════════════════════
+//  INSIGHT GENERATOR (3-step wizard)
+// ══════════════════════════════════════
+
+(function initGenerator() {
+    const counterNum = document.getElementById('gen-counter-num');
+    const counterTotal = document.getElementById('gen-counter-total');
+    if (!counterNum) return;
+
+    const TOTAL = SYNTHETIC_POOL.length;
+    counterTotal.textContent = TOTAL.toLocaleString();
+
+    // ── State ──
+    let currentStep = 1;
+    let animatedCount = TOTAL;
+    let targetCount = TOTAL;
+    let animFrame = null;
+
+    // Filter state — Step 1
+    const selectedEncounters = new Set(POOL_ENCOUNTER_TYPES);
+    const selectedSex = new Set(['female', 'male', 'intersex', 'unknown']);
+    let ageLo = 18, ageHi = 85;
+    let dateFrom = '', dateTo = '';
+
+    // Filter state — Step 2 (empty = all)
+    const selectedConditions = new Set();
+    const selectedInterventions = new Set();
+    const selectedSubstances = new Set();
+    const selectedDevices = new Set();
+    const selectedAnatomy = new Set();
+
+    // ── Chip renderer helper ──
+    function renderChips(containerId, values, selectedSet, labelFn) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        container.innerHTML = '';
+        values.forEach(v => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'gen-chip' + (selectedSet.has(v) ? ' selected' : '');
+            btn.textContent = labelFn ? labelFn(v) : v;
+            btn.addEventListener('click', () => {
+                if (selectedSet.has(v)) selectedSet.delete(v);
+                else selectedSet.add(v);
+                btn.classList.toggle('selected');
+                applyFilters();
+            });
+            container.appendChild(btn);
+        });
+    }
+
+    const ENCOUNTER_LABELS = {
+        consultation: 'Consultation', follow_up: 'Follow-up',
+        procedure_visit: 'Procedure', lab_visit: 'Lab Visit', telehealth: 'Telehealth',
+    };
+
+    // ── Initialize Step 1 chips ──
+    renderChips('gen-encounter-chips', POOL_ENCOUNTER_TYPES, selectedEncounters, v => ENCOUNTER_LABELS[v] || v);
+    renderChips('gen-sex-chips', ['female', 'male', 'intersex', 'unknown'], selectedSex,
+        v => v.charAt(0).toUpperCase() + v.slice(1));
+
+    // ── Initialize Step 2 chips (all unselected = show all) ──
+    renderChips('gen-condition-chips', POOL_CONDITIONS, selectedConditions);
+    renderChips('gen-intervention-chips', POOL_INTERVENTION_CATS, selectedInterventions,
+        v => v.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase()));
+    renderChips('gen-substance-chips', POOL_SUBSTANCES, selectedSubstances);
+    renderChips('gen-device-chips', POOL_DEVICES, selectedDevices);
+    renderChips('gen-anatomy-chips', POOL_ANATOMY, selectedAnatomy);
+
+    // ── Date inputs ──
+    const earliest = SYNTHETIC_POOL.reduce((m, r) => r.occurred_at < m ? r.occurred_at : m, '9999');
+    const latest = SYNTHETIC_POOL.reduce((m, r) => r.occurred_at > m ? r.occurred_at : m, '0000');
+
+    const dateFromEl = document.getElementById('gen-date-from');
+    const dateToEl = document.getElementById('gen-date-to');
+    dateFromEl.min = earliest; dateFromEl.max = latest;
+    dateToEl.min = earliest; dateToEl.max = latest;
+
+    dateFromEl.addEventListener('change', () => { dateFrom = dateFromEl.value; applyFilters(); });
+    dateToEl.addEventListener('change', () => { dateTo = dateToEl.value; applyFilters(); });
+
+    // ── Dual range slider ──
+    const sliderLo = document.getElementById('gen-age-slider-lo');
+    const sliderHi = document.getElementById('gen-age-slider-hi');
+    const ageMinInput = document.getElementById('gen-age-min');
+    const ageMaxInput = document.getElementById('gen-age-max');
+    const rangeFill = document.getElementById('gen-range-fill');
+
+    function updateRangeFill() {
+        const lo = parseInt(sliderLo.value), hi = parseInt(sliderHi.value);
+        const pctLo = ((lo - 18) / 67) * 100;
+        const pctHi = ((hi - 18) / 67) * 100;
+        rangeFill.style.left = pctLo + '%';
+        rangeFill.style.width = (pctHi - pctLo) + '%';
+    }
+
+    function syncSliders(source) {
+        let lo = parseInt(sliderLo.value), hi = parseInt(sliderHi.value);
+        if (source === 'lo' && lo > hi) { sliderLo.value = hi; lo = hi; }
+        if (source === 'hi' && hi < lo) { sliderHi.value = lo; hi = lo; }
+        ageLo = lo; ageHi = hi;
+        ageMinInput.value = lo; ageMaxInput.value = hi;
+        updateRangeFill();
+        applyFilters();
+    }
+
+    sliderLo.addEventListener('input', () => syncSliders('lo'));
+    sliderHi.addEventListener('input', () => syncSliders('hi'));
+    ageMinInput.addEventListener('change', () => {
+        let v = Math.max(18, Math.min(85, parseInt(ageMinInput.value) || 18));
+        sliderLo.value = v; ageMinInput.value = v;
+        syncSliders('lo');
+    });
+    ageMaxInput.addEventListener('change', () => {
+        let v = Math.max(18, Math.min(85, parseInt(ageMaxInput.value) || 85));
+        sliderHi.value = v; ageMaxInput.value = v;
+        syncSliders('hi');
+    });
+    updateRangeFill();
+
+    // ── Filter engine ──
+    let filteredPool = SYNTHETIC_POOL;
+
+    function applyFilters() {
+        filteredPool = SYNTHETIC_POOL.filter(r => {
+            if (!selectedEncounters.has(r.encounter_type)) return false;
+            if (!selectedSex.has(r.sex_at_birth)) return false;
+            if (r.age < ageLo || r.age > ageHi) return false;
+            if (dateFrom && r.occurred_at < dateFrom) return false;
+            if (dateTo && r.occurred_at > dateTo) return false;
+            if (selectedConditions.size && !selectedConditions.has(r.condition)) return false;
+            if (selectedInterventions.size && !selectedInterventions.has(r.intervention_category)) return false;
+            if (selectedSubstances.size && !selectedSubstances.has(r.substance)) return false;
+            if (selectedDevices.size && !(r.device && selectedDevices.has(r.device))) return false;
+            if (selectedAnatomy.size && !selectedAnatomy.has(r.anatomy_region)) return false;
+            return true;
+        });
+        targetCount = filteredPool.length;
+        animateCounter();
+    }
+
+    // ── Animated counter ──
+    function animateCounter() {
+        if (animFrame) cancelAnimationFrame(animFrame);
+        const start = animatedCount;
+        const diff = targetCount - start;
+        if (diff === 0) return;
+        const duration = 280;
+        const t0 = performance.now();
+
+        function tick(now) {
+            const elapsed = now - t0;
+            const progress = Math.min(elapsed / duration, 1);
+            const ease = 1 - Math.pow(1 - progress, 3);
+            animatedCount = Math.round(start + diff * ease);
+            counterNum.textContent = animatedCount.toLocaleString();
+            if (progress < 1) animFrame = requestAnimationFrame(tick);
+        }
+        animFrame = requestAnimationFrame(tick);
+    }
+
+    // ── Step navigation ──
+    const panels = document.querySelectorAll('.gen-panel');
+    const dots = document.querySelectorAll('.gen-step-dot');
+    const lines = document.querySelectorAll('.gen-step-line');
+
+    function goToStep(step) {
+        currentStep = step;
+        panels.forEach(p => p.classList.toggle('active', parseInt(p.dataset.panel) === step));
+        dots.forEach(d => {
+            const s = parseInt(d.dataset.step);
+            d.classList.toggle('active', s === step);
+            d.classList.toggle('done', s < step);
+        });
+        lines.forEach((l, i) => l.classList.toggle('done', i + 1 < step));
+
+        if (step === 3) buildSummaryBar();
+    }
+
+    document.querySelectorAll('.gen-next, .gen-back').forEach(btn => {
+        btn.addEventListener('click', () => goToStep(parseInt(btn.dataset.to)));
+    });
+    dots.forEach(d => {
+        d.addEventListener('click', () => {
+            const s = parseInt(d.dataset.step);
+            if (s <= currentStep || s === currentStep + 1) goToStep(s);
+        });
+    });
+
+    // ── Step 3: Summary bar ──
+    function buildSummaryBar() {
+        const bar = document.getElementById('gen-summary-bar');
+        const n = filteredPool.length;
+        const clinics = new Set(filteredPool.map(r => r.clinic));
+        const topConditions = topN(filteredPool, 'condition', 3);
+        const topSubs = topN(filteredPool, 'substance', 3);
+        bar.innerHTML = `Analyzing <strong>${n.toLocaleString()}</strong> patients across <strong>${clinics.size}</strong> clinics.`
+            + (topConditions.length ? `<br>Top conditions: ${topConditions.join(', ')}.` : '')
+            + (topSubs.length ? ` Top substances: ${topSubs.join(', ')}.` : '');
+    }
+
+    function topN(arr, key, n) {
+        const counts = {};
+        arr.forEach(r => { const v = r[key]; if (v) counts[v] = (counts[v] || 0) + 1; });
+        return Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, n).map(e => e[0]);
+    }
+
+    // ── Step 3: Generate insight ──
+    const generateBtn = document.getElementById('gen-generate-btn');
+    const loadingEl = document.getElementById('gen-loading');
+    const promptEl = document.getElementById('gen-prompt');
+    const apiKeyEl = document.getElementById('gen-api-key');
+
+    // Restore saved API key
+    const savedKey = localStorage.getItem('gen_openai_key');
+    if (savedKey && apiKeyEl) apiKeyEl.value = savedKey;
+
+    // Build a cohort section from the actual filteredPool rows
+    function renderGeneratedCohortSection(pool) {
+        const count = pool.length;
+        if (!count) return '';
+        const previewCount = Math.min(25, count);
+        const sample = pool.slice(0, previewCount);
+        const keys = Object.keys(sample[0]);
+        const headers = keys.map(k => `<th>${k.replace(/_/g, ' ')}</th>`).join('');
+        const body = sample.map(row =>
+            '<tr>' + keys.map(k => `<td>${row[k] ?? ''}</td>`).join('') + '</tr>'
+        ).join('');
+
+        return `
+        <div class="cohort-section">
+            <button class="cohort-toggle" type="button">
+                <span class="cohort-toggle-label">Patient Cohort</span>
+                <span class="cohort-toggle-count">${count.toLocaleString()} patients</span>
+                <span class="cohort-chevron">&#9662;</span>
+            </button>
+            <div class="cohort-body">
+                <div class="cohort-table-wrap">
+                    <table class="proving-table cohort-table">
+                        <thead><tr>${headers}</tr></thead>
+                        <tbody>${body}</tbody>
+                    </table>
+                </div>
+                <div class="cohort-footer">
+                    <span class="cohort-showing">Showing ${previewCount} of ${count.toLocaleString()}</span>
+                    <button class="cohort-download" type="button">&#8615; Download full cohort (CSV)</button>
+                </div>
+            </div>
+        </div>`;
+    }
+
+    generateBtn.addEventListener('click', async () => {
+        const prompt = promptEl.value.trim();
+        if (!prompt) { promptEl.focus(); return; }
+
+        const apiKey = apiKeyEl.value.trim();
+        if (apiKey) localStorage.setItem('gen_openai_key', apiKey);
+
+        loadingEl.style.display = 'block';
+        generateBtn.disabled = true;
+
+        const cohortSummary = buildCohortContext();
+        let insight;
+
+        if (apiKey) {
+            try {
+                insight = await callOpenAI(apiKey, prompt, cohortSummary);
+            } catch (err) {
+                console.warn('OpenAI call failed, falling back to simulation:', err);
+                insight = simulateInsight(prompt, cohortSummary);
+            }
+        } else {
+            await fakePause(1800);
+            insight = simulateInsight(prompt, cohortSummary);
+        }
+
+        loadingEl.style.display = 'none';
+        generateBtn.disabled = false;
+
+        // Snapshot the current filtered pool for the cohort
+        const cohortSnapshot = [...filteredPool];
+
+        // Render into the same detail modal used by all insights
+        // Use renderDetailFull but replace the empty cohort section with our pool-based one
+        let html = renderDetailFull(insight);
+        const poolCohortHtml = renderGeneratedCohortSection(cohortSnapshot);
+        if (poolCohortHtml) {
+            // renderDetailFull ends with renderCohortSection(insight) which returns ''
+            // for generated insights (no COHORT_CONFIGS entry). Append the pool cohort.
+            html += poolCohortHtml;
+        }
+
+        detailContent.innerHTML = html;
+
+        // Wire cohort toggle
+        const cohortToggle = detailContent.querySelector('.cohort-toggle');
+        if (cohortToggle) {
+            cohortToggle.addEventListener('click', () => {
+                cohortToggle.closest('.cohort-section').classList.toggle('open');
+            });
+        }
+
+        // Wire CSV download from the actual filtered pool
+        const cohortDl = detailContent.querySelector('.cohort-download');
+        if (cohortDl) {
+            cohortDl.addEventListener('click', () => {
+                downloadCSV(cohortSnapshot, 'cohort-generated-insight.csv');
+            });
+        }
+
+        detailModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    });
+
+    function fakePause(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function buildCohortContext() {
+        const n = filteredPool.length;
+        const clinics = new Set(filteredPool.map(r => r.clinic));
+        const ages = filteredPool.map(r => r.age);
+        const meanAge = ages.length ? Math.round(ages.reduce((a, b) => a + b, 0) / ages.length) : 0;
+        const female = filteredPool.filter(r => r.sex_at_birth === 'female').length;
+        const femalePct = n ? Math.round((female / n) * 100) : 0;
+        const topCond = topN(filteredPool, 'condition', 5);
+        const topSub = topN(filteredPool, 'substance', 5);
+        const topDev = topN(filteredPool, 'device', 5);
+        const topAnat = topN(filteredPool, 'anatomy_region', 5);
+
+        return {
+            patientCount: n,
+            clinicCount: clinics.size,
+            meanAge,
+            femalePct,
+            topConditions: topCond,
+            topSubstances: topSub,
+            topDevices: topDev,
+            topAnatomy: topAnat,
+            text: `Cohort: ${n} patients, ${clinics.size} clinics, mean age ${meanAge}, ${femalePct}% female. `
+                + `Top conditions: ${topCond.join(', ')}. Top substances: ${topSub.join(', ')}. `
+                + `Top devices: ${topDev.join(', ')}. Top anatomy: ${topAnat.join(', ')}.`,
+        };
+    }
+
+    // ── OpenAI call ──
+    async function callOpenAI(apiKey, userPrompt, ctx) {
+        const systemPrompt = `You are a clinical data analyst for an aesthetic medicine analytics platform. Given a patient cohort summary and a user request, generate a structured JSON insight. Return ONLY valid JSON with this exact schema:
+{
+  "id": "generated-insight",
+  "category": "treatment_outcomes|provider_intelligence|product_substance|patient_cohorts|market_trends",
+  "tier": "free",
+  "title": "string (concise, specific title)",
+  "summary": "string (2-3 sentences, data-driven)",
+  "preview": "string (1 sentence preview)",
+  "content": {
+    "keyFinding": "string",
+    "supportingFindings": ["string", "string", "string"],
+    "recommendation": "string",
+    "limitations": "string"
+  },
+  "evidence": {
+    "score": number (6.0-9.0),
+    "breakdown": { "sample_size": number (0-2), "clinic_diversity": number (0-2), "follow_up": number (0-2), "completeness": number (0-2), "image_validation": number (0-2) },
+    "clinicCount": number,
+    "patientCount": number,
+    "imageCount": number
+  },
+  "provingData": [{"column1": "value", ...}, ...],
+  "tags": ["string"],
+  "entities": ["string"],
+  "publishedAt": "YYYY-MM-DD",
+  "isFeatured": false,
+  "trendScore": number
+}
+Use the actual cohort numbers provided. Make findings specific and quantitative. provingData should have 4-6 rows with columns relevant to the analysis.`;
+
+        const res = await fetch('https://api.openai.com/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + apiKey,
+            },
+            body: JSON.stringify({
+                model: 'gpt-4o-mini',
+                temperature: 0.7,
+                messages: [
+                    { role: 'system', content: systemPrompt },
+                    { role: 'user', content: `Cohort context:\n${ctx.text}\n\nUser request: ${userPrompt}` },
+                ],
+            }),
+        });
+
+        if (!res.ok) throw new Error('API ' + res.status);
+        const data = await res.json();
+        const raw = data.choices[0].message.content;
+        const jsonStr = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+        return JSON.parse(jsonStr);
+    }
+
+    // ── Simulated fallback ──
+    function simulateInsight(userPrompt, ctx) {
+        const topCond = ctx.topConditions[0] || 'Fine lines';
+        const topSub = ctx.topSubstances[0] || 'Botox';
+        const secondSub = ctx.topSubstances[1] || 'Dysport';
+        const topDev = ctx.topDevices[0] || 'Morpheus8';
+        const topAnat = ctx.topAnatomy[0] || 'Midface';
+
+        const rng = mulberry32(hashStr(userPrompt + ctx.patientCount));
+        const rf = (min, max) => +(min + rng() * (max - min)).toFixed(1);
+        const ri = (min, max) => Math.floor(rng() * (max - min + 1)) + min;
+        const pct = () => ri(12, 68) + '%';
+
+        const improvementPct = ri(28, 54);
+        const retentionPct = ri(62, 88);
+
+        return {
+            id: 'generated-insight',
+            category: detectCategory(userPrompt, topCond, topSub),
+            tier: 'free',
+            title: `${topSub} and ${secondSub} Comparative Outcomes for ${topCond}: ${ctx.patientCount.toLocaleString()}-Patient Analysis`,
+            summary: `Analysis of ${ctx.patientCount.toLocaleString()} patients across ${ctx.clinicCount} clinics reveals ${topSub} achieves ${improvementPct}% mean improvement in ${topCond.toLowerCase()} outcomes at the ${topAnat.toLowerCase()} region over the observation period, with ${secondSub} trailing by ${ri(4, 12)} percentage points. Patient retention at 12 months is ${retentionPct}% for ${topSub} versus ${retentionPct - ri(8, 18)}% for ${secondSub}, suggesting durability advantages beyond initial efficacy.`,
+            preview: `${topSub} shows ${improvementPct}% improvement for ${topCond.toLowerCase()} across ${ctx.clinicCount} clinics.`,
+            content: {
+                keyFinding: `${topSub} demonstrates statistically meaningful superiority over ${secondSub} in ${topCond.toLowerCase()} outcomes targeting the ${topAnat.toLowerCase()}, with the difference widening after the initial treatment cycle.`,
+                supportingFindings: [
+                    `Mean improvement scores at Week 12 for ${topSub} reach ${improvementPct}% versus ${improvementPct - ri(5, 12)}% for ${secondSub}, measured via standardized clinical photography and CV analysis across ${ctx.clinicCount} participating sites.`,
+                    `Patients in the ${ctx.meanAge - 5}–${ctx.meanAge + 5} age band show the strongest response differential (${ri(8, 18)} percentage point gap favoring ${topSub}), suggesting age-dependent treatment selection may optimize outcomes.`,
+                    `${ctx.femalePct}% of the cohort is female, and subgroup analysis reveals no statistically significant sex-based difference in primary outcome, though male patients show slightly faster initial onset.`,
+                    `${topDev}-assisted treatments in combination with ${topSub} correlate with a ${ri(6, 15)}% incremental improvement over ${topSub} monotherapy in the ${topAnat.toLowerCase()} region.`,
+                ],
+                recommendation: `Consider ${topSub} as the first-line agent for ${topCond.toLowerCase()} targeting the ${topAnat.toLowerCase()}, particularly in patients aged ${ctx.meanAge - 5}–${ctx.meanAge + 5}. Evaluate ${topDev} combination protocols for patients seeking enhanced outcomes. Monitor and re-evaluate ${secondSub} candidates at Week 8 for potential switch optimization.`,
+                limitations: `This is an observational analysis of synthetic demo data and does not represent real clinical evidence. In production, confounders such as provider technique variance, patient compliance, and concomitant treatments would need to be controlled. Cross-site calibration of imaging protocols introduces measurement variability.`,
+            },
+            evidence: {
+                score: rf(7.0, 8.8),
+                breakdown: {
+                    sample_size: rf(1.2, 1.9),
+                    clinic_diversity: rf(1.3, 1.8),
+                    follow_up: rf(1.2, 1.7),
+                    completeness: rf(1.1, 1.6),
+                    image_validation: rf(0.9, 1.5),
+                },
+                clinicCount: ctx.clinicCount,
+                patientCount: ctx.patientCount,
+                imageCount: Math.round(ctx.patientCount * (0.3 + rng() * 0.4)),
+            },
+            provingData: [
+                { substance: topSub, patients: ri(Math.round(ctx.patientCount * 0.3), Math.round(ctx.patientCount * 0.4)), improvement_pct: improvementPct + '%', retention_12mo: retentionPct + '%', top_anatomy: topAnat },
+                { substance: secondSub, patients: ri(Math.round(ctx.patientCount * 0.2), Math.round(ctx.patientCount * 0.3)), improvement_pct: (improvementPct - ri(5, 12)) + '%', retention_12mo: (retentionPct - ri(8, 18)) + '%', top_anatomy: topAnat },
+                { substance: ctx.topSubstances[2] || 'Sculptra', patients: ri(Math.round(ctx.patientCount * 0.1), Math.round(ctx.patientCount * 0.2)), improvement_pct: pct(), retention_12mo: pct(), top_anatomy: ctx.topAnatomy[1] || 'Perioral' },
+                { substance: ctx.topSubstances[3] || 'Radiesse', patients: ri(Math.round(ctx.patientCount * 0.05), Math.round(ctx.patientCount * 0.15)), improvement_pct: pct(), retention_12mo: pct(), top_anatomy: ctx.topAnatomy[2] || 'Chin' },
+            ],
+            tags: [topCond.toLowerCase().replace(/ /g, '-'), topSub.toLowerCase(), secondSub.toLowerCase(), 'comparative', 'outcomes'],
+            entities: [topSub, secondSub, topDev, topAnat, topCond],
+            publishedAt: new Date().toISOString().split('T')[0],
+            isFeatured: false,
+            trendScore: ri(70, 95),
+        };
+    }
+
+    function detectCategory(prompt, cond, sub) {
+        const p = prompt.toLowerCase();
+        if (p.includes('market') || p.includes('trend') || p.includes('switch') || p.includes('migration')) return 'market_trends';
+        if (p.includes('provider') || p.includes('injector') || p.includes('technique')) return 'provider_intelligence';
+        if (p.includes('product') || p.includes('brand') || p.includes('substance') || p.includes('compound')) return 'product_substance';
+        if (p.includes('cohort') || p.includes('demographic') || p.includes('population')) return 'patient_cohorts';
+        return 'treatment_outcomes';
+    }
+})();
+
 
 });

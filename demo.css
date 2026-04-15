@@ -897,58 +897,368 @@
 }
 
 /* ══════════════════════════════════════
-   CREATE YOUR OWN TEASER
+   INSIGHT GENERATOR (3-step wizard)
    ══════════════════════════════════════ */
 
-.demo-teaser {
-    padding: 5rem 0;
+.generator {
+    padding: 5rem 0 4rem;
     background-color: var(--color-bg-alt);
     border-top: 1px solid var(--color-border-light);
-    text-align: center;
 }
 
-.teaser-badge {
-    display: inline-flex;
+.generator-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.generator-header h2 { margin-bottom: 0.5rem; }
+
+.generator-header .subhead {
+    color: var(--color-text-secondary);
+    font-size: 1.05rem;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* ── Stepper ── */
+
+.gen-stepper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 1.75rem;
+}
+
+.gen-step-dot {
+    display: flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background-color: var(--color-accent-light);
-    border-radius: var(--radius-lg);
+    border: none;
+    background: none;
+    font-family: var(--font-body);
     font-size: 0.82rem;
     font-weight: 500;
+    color: var(--color-text-tertiary);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.gen-step-dot span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--color-border-light);
+    font-weight: 600;
+    font-size: 0.78rem;
+    color: var(--color-text-tertiary);
+    transition: all 0.25s;
+}
+
+.gen-step-dot.active span,
+.gen-step-dot.done span {
+    background-color: var(--color-accent);
+    color: #fff;
+}
+
+.gen-step-dot.active,
+.gen-step-dot.done {
+    color: var(--color-text-primary);
+}
+
+.gen-step-line {
+    width: 48px;
+    height: 2px;
+    background-color: var(--color-border);
+    transition: background-color 0.25s;
+}
+
+.gen-step-line.done {
+    background-color: var(--color-accent);
+}
+
+/* ── Counter ── */
+
+.gen-counter {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.gen-counter-num {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 600;
     color: var(--color-accent);
-    margin-bottom: 1.25rem;
+    line-height: 1;
+    transition: color 0.3s;
 }
 
-.demo-teaser h2 {
-    margin-bottom: 1.25rem;
+.gen-counter-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-text-tertiary);
+    margin-top: 0.3rem;
 }
 
-.demo-teaser .description {
+/* ── Panels ── */
+
+.gen-panels {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.gen-panel {
+    display: none;
+    animation: genFadeIn 0.3s ease;
+}
+
+.gen-panel.active {
+    display: block;
+}
+
+@keyframes genFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Filter groups ── */
+
+.gen-filter-group {
+    margin-bottom: 1.5rem;
+}
+
+.gen-label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     color: var(--color-text-secondary);
-    font-size: 1.05rem;
-    max-width: 520px;
-    margin: 0 auto 2rem;
-    line-height: 1.7;
+    margin-bottom: 0.6rem;
 }
 
-.teaser-input-wrap {
-    max-width: 600px;
-    margin: 0 auto 2rem;
+.gen-input {
+    padding: 0.6rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    background: var(--color-bg);
+    color: var(--color-text-primary);
+    transition: border-color 0.2s;
 }
 
-.teaser-input {
-    width: 100%;
-    padding: 1rem 1.5rem;
+.gen-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.gen-input-sm {
+    width: 72px;
+    text-align: center;
+}
+
+.gen-date-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.gen-date-sep {
+    color: var(--color-text-tertiary);
+    font-size: 0.85rem;
+}
+
+/* ── Chips ── */
+
+.gen-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.gen-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.85rem;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-full);
     font-family: var(--font-body);
-    font-size: 0.95rem;
-    color: var(--color-text-tertiary);
-    background-color: var(--color-bg);
-    cursor: not-allowed;
-    opacity: 0.7;
+    font-size: 0.82rem;
+    font-weight: 450;
+    color: var(--color-text-secondary);
+    background: var(--color-bg);
+    cursor: pointer;
+    transition: all 0.15s;
+    user-select: none;
 }
+
+.gen-chip:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+.gen-chip.selected {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #fff;
+}
+
+/* ── Dual range slider ── */
+
+.gen-range-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.gen-range-track {
+    flex: 1;
+    position: relative;
+    height: 6px;
+    background: var(--color-border);
+    border-radius: 3px;
+}
+
+.gen-range-fill {
+    position: absolute;
+    height: 100%;
+    background: var(--color-accent);
+    border-radius: 3px;
+    pointer-events: none;
+}
+
+.gen-range-thumb {
+    position: absolute;
+    top: -10px;
+    width: 100%;
+    height: 26px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    pointer-events: none;
+    margin: 0;
+}
+
+.gen-range-thumb::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    border: 3px solid #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+    pointer-events: all;
+    cursor: grab;
+}
+
+.gen-range-thumb::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    border: 3px solid #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+    pointer-events: all;
+    cursor: grab;
+}
+
+/* ── Actions ── */
+
+.gen-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+}
+
+/* ── Step 3: Prompt / Generate ── */
+
+.gen-summary-bar {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 0.85rem 1.25rem;
+    font-size: 0.88rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.gen-summary-bar strong {
+    color: var(--color-text-primary);
+    font-weight: 600;
+}
+
+.gen-textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    color: var(--color-text-primary);
+    background: var(--color-bg);
+    resize: vertical;
+    min-height: 100px;
+    transition: border-color 0.2s;
+}
+
+.gen-textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.gen-api-details {
+    margin-bottom: 1rem;
+}
+
+.gen-api-details summary {
+    font-size: 0.8rem;
+    color: var(--color-text-tertiary);
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+}
+
+.gen-api-details .gen-input {
+    width: 100%;
+    margin-top: 0.4rem;
+}
+
+/* ── Loading state ── */
+
+.gen-loading {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.gen-spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid var(--color-border);
+    border-top-color: var(--color-accent);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    animation: genSpin 0.7s linear infinite;
+}
+
+@keyframes genSpin {
+    to { transform: rotate(360deg); }
+}
+
+.gen-loading-text {
+    color: var(--color-text-tertiary);
+    font-size: 0.92rem;
+}
+
 
 /* ══════════════════════════════════════
    COHORT SECTION
@@ -1120,6 +1430,18 @@
         border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
         max-height: 95vh;
     }
+
+    .gen-stepper {
+        gap: 0;
+    }
+
+    .gen-step-line {
+        width: 24px;
+    }
+
+    .gen-date-row {
+        flex-wrap: wrap;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1135,8 +1457,12 @@
         padding: 1.5rem;
     }
 
-    .demo-teaser {
-        padding: 4rem 0;
+    .generator {
+        padding: 3rem 0;
+    }
+
+    .gen-counter-num {
+        font-size: 2rem;
     }
 
     .detail-modal-container {

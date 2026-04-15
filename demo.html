@@ -125,16 +125,122 @@
             </div>
         </section>
 
-        <!-- ── Create Your Own Teaser ── -->
-        <section class="demo-teaser">
-            <div class="container fade-in-up">
-                <div class="teaser-badge">&#9733; Coming Soon</div>
-                <h2>Build Custom Insights from Your Data</h2>
-                <p class="description">Query the knowledge graph in plain language. Define cohorts, compare outcomes, and generate insights from your own data.</p>
-                <div class="teaser-input-wrap">
-                    <input type="text" class="teaser-input" placeholder="e.g. Compare botox outcomes for forehead lines across clinics..." disabled>
+        <!-- ── Insight Generator (3-step wizard) ── -->
+        <section class="generator" id="generator">
+            <div class="container">
+                <div class="generator-header fade-in-up">
+                    <div class="section-label" style="justify-content:center">
+                        <span class="icon" style="background-color:var(--color-accent-light);color:var(--color-accent)">&#9670;</span>
+                        Insight Generator
+                    </div>
+                    <h2>Build a Custom Insight</h2>
+                    <p class="subhead">Narrow the cohort, then describe the analysis you need.</p>
                 </div>
-                <a href="#clinic-signup" class="btn btn-primary" id="teaser-cta">Request Early Access</a>
+
+                <!-- Stepper -->
+                <div class="gen-stepper fade-in-up delay-100">
+                    <button class="gen-step-dot active" data-step="1"><span>1</span>Cohort</button>
+                    <div class="gen-step-line"></div>
+                    <button class="gen-step-dot" data-step="2"><span>2</span>Filters</button>
+                    <div class="gen-step-line"></div>
+                    <button class="gen-step-dot" data-step="3"><span>3</span>Generate</button>
+                </div>
+
+                <!-- Cohort counter (persistent across steps) -->
+                <div class="gen-counter fade-in-up delay-200" id="gen-counter">
+                    <span class="gen-counter-num" id="gen-counter-num">8,247</span>
+                    <span class="gen-counter-label">of <span id="gen-counter-total">8,247</span> patients in cohort</span>
+                </div>
+
+                <!-- Step panels wrapper -->
+                <div class="gen-panels" id="gen-panels">
+
+                    <!-- Step 1: Broad filters -->
+                    <div class="gen-panel active" data-panel="1" id="gen-panel-1">
+                        <div class="gen-filter-group">
+                            <label class="gen-label">Date Range</label>
+                            <div class="gen-date-row">
+                                <input type="date" id="gen-date-from" class="gen-input">
+                                <span class="gen-date-sep">to</span>
+                                <input type="date" id="gen-date-to" class="gen-input">
+                            </div>
+                        </div>
+                        <div class="gen-filter-group">
+                            <label class="gen-label">Encounter Type</label>
+                            <div class="gen-chips" id="gen-encounter-chips"></div>
+                        </div>
+                        <div class="gen-filter-group">
+                            <label class="gen-label">Sex at Birth</label>
+                            <div class="gen-chips" id="gen-sex-chips"></div>
+                        </div>
+                        <div class="gen-filter-group">
+                            <label class="gen-label">Age Range</label>
+                            <div class="gen-range-row">
+                                <input type="number" id="gen-age-min" class="gen-input gen-input-sm" value="18" min="18" max="85">
+                                <div class="gen-range-track" id="gen-range-track">
+                                    <div class="gen-range-fill" id="gen-range-fill"></div>
+                                    <input type="range" id="gen-age-slider-lo" min="18" max="85" value="18" class="gen-range-thumb">
+                                    <input type="range" id="gen-age-slider-hi" min="18" max="85" value="85" class="gen-range-thumb">
+                                </div>
+                                <input type="number" id="gen-age-max" class="gen-input gen-input-sm" value="85" min="18" max="85">
+                            </div>
+                        </div>
+                        <div class="gen-actions">
+                            <div></div>
+                            <button class="btn btn-primary gen-next" data-to="2">Next &rarr;</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Domain filters -->
+                    <div class="gen-panel" data-panel="2" id="gen-panel-2">
+                        <div class="gen-filter-group">
+                            <label class="gen-label">Condition</label>
+                            <div class="gen-chips" id="gen-condition-chips"></div>
+                        </div>
+                        <div class="gen-filter-group">
+                            <label class="gen-label">Intervention Category</label>
+                            <div class="gen-chips" id="gen-intervention-chips"></div>
+                        </div>
+                        <div class="gen-filter-group">
+                            <label class="gen-label">Substance</label>
+                            <div class="gen-chips gen-chips-wrap" id="gen-substance-chips"></div>
+                        </div>
+                        <div class="gen-filter-group">
+                            <label class="gen-label">Device</label>
+                            <div class="gen-chips gen-chips-wrap" id="gen-device-chips"></div>
+                        </div>
+                        <div class="gen-filter-group">
+                            <label class="gen-label">Anatomy Region</label>
+                            <div class="gen-chips gen-chips-wrap" id="gen-anatomy-chips"></div>
+                        </div>
+                        <div class="gen-actions">
+                            <button class="btn btn-secondary gen-back" data-to="1">&larr; Back</button>
+                            <button class="btn btn-primary gen-next" data-to="3">Next &rarr;</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Generate -->
+                    <div class="gen-panel" data-panel="3" id="gen-panel-3">
+                        <div class="gen-summary-bar" id="gen-summary-bar"></div>
+                        <div class="gen-filter-group">
+                            <label class="gen-label">Describe the insight you want</label>
+                            <textarea id="gen-prompt" class="gen-textarea" rows="4" placeholder="e.g. Compare neuromodulator brand retention rates across age groups and identify which brand shows strongest loyalty in patients under 40..."></textarea>
+                        </div>
+                        <details class="gen-api-details">
+                            <summary>Use your OpenAI API key (optional)</summary>
+                            <input type="password" id="gen-api-key" class="gen-input" placeholder="sk-..." autocomplete="off">
+                        </details>
+                        <div class="gen-actions">
+                            <button class="btn btn-secondary gen-back" data-to="2">&larr; Back</button>
+                            <button class="btn btn-primary" id="gen-generate-btn">Generate Insight</button>
+                        </div>
+                        <div id="gen-loading" class="gen-loading" style="display:none">
+                            <div class="gen-spinner"></div>
+                            <p class="gen-loading-text">Analyzing cohort and generating insight...</p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
 
