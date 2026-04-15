@@ -1234,7 +1234,7 @@ function generateSyntheticPool() {
         pool[i] = {
             patient_id: 'PT-' + String(i + 1).padStart(5, '0'),
             age: ri(18, 82),
-            sex_at_birth: sexRoll < 0.72 ? 'female' : sexRoll < 0.95 ? 'male' : sexRoll < 0.98 ? 'intersex' : 'unknown',
+            sex_at_birth: sexRoll < 0.75 ? 'female' : 'male',
             clinic: pick(CLINIC_POOL),
             encounter_type: pick(POOL_ENCOUNTER_TYPES),
             occurred_at: d.toISOString().split('T')[0],
@@ -2186,7 +2186,7 @@ document.addEventListener('keydown', (e) => {
 
     // Filter state — Step 1
     const selectedEncounters = new Set(POOL_ENCOUNTER_TYPES);
-    const selectedSex = new Set(['female', 'male', 'intersex', 'unknown']);
+    const selectedSex = new Set(['female', 'male']);
     let ageLo = 18, ageHi = 85;
     let dateFrom = '', dateTo = '';
 
@@ -2224,7 +2224,7 @@ document.addEventListener('keydown', (e) => {
 
     // ── Initialize Step 1 chips ──
     renderChips('gen-encounter-chips', POOL_ENCOUNTER_TYPES, selectedEncounters, v => ENCOUNTER_LABELS[v] || v);
-    renderChips('gen-sex-chips', ['female', 'male', 'intersex', 'unknown'], selectedSex,
+    renderChips('gen-sex-chips', ['female', 'male'], selectedSex,
         v => v.charAt(0).toUpperCase() + v.slice(1));
 
     // ── Initialize Step 2 chips (all unselected = show all) ──
