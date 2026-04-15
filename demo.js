@@ -1891,7 +1891,10 @@ function renderDetailFull(insight) {
         <h4>Recommendation</h4>
         <p>${insight.content.recommendation}</p>
     </div>
-    ${renderCohortSection(insight)}`;
+    ${renderCohortSection(insight)}
+    <div class="detail-disclaimer">
+        <strong>Data Disclaimer</strong> — These findings are derived from de-identified data across InPractice Health's participating clinic network, representing a subset of all real-world clinical activity. InPractice Health is a neutral data infrastructure layer and does not endorse, promote, or disparage any brand, product, or provider. All findings are observational and subject to selection bias, confounding, and the limitations inherent in retrospective analysis.
+    </div>`;
 }
 
 function renderDetailLocked(insight) {
@@ -1931,6 +1934,9 @@ function renderDetailLocked(insight) {
                 <button class="btn btn-primary locked-cta">Request Access</button>
             </div>
         </div>
+    </div>
+    <div class="detail-disclaimer">
+        <strong>Data Disclaimer</strong> — These findings are derived from de-identified data across InPractice Health's participating clinic network, representing a subset of all real-world clinical activity. InPractice Health is a neutral data infrastructure layer and does not endorse, promote, or disparage any brand, product, or provider. All findings are observational and subject to selection bias, confounding, and the limitations inherent in retrospective analysis.
     </div>`;
 }
 

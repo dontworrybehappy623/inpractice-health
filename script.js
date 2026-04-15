@@ -238,30 +238,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const mobileToggle = document.querySelector('.mobile-menu-toggle');
     const navLinks = document.querySelector('.nav-links');
+    const backdrop = document.querySelector('.mobile-menu-backdrop');
+
+    function closeMobileMenu() {
+        navLinks.classList.remove('active');
+        mobileToggle.classList.remove('open');
+        if (backdrop) backdrop.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function openMobileMenu() {
+        navLinks.classList.add('active');
+        mobileToggle.classList.add('open');
+        if (backdrop) backdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
 
     if (mobileToggle && navLinks) {
         mobileToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const spans = mobileToggle.querySelectorAll('span');
             if (navLinks.classList.contains('active')) {
-                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                spans[1].style.opacity = '0';
-                spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+                closeMobileMenu();
             } else {
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
+                openMobileMenu();
             }
         });
 
+        if (backdrop) {
+            backdrop.addEventListener('click', closeMobileMenu);
+        }
+
         navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                const spans = mobileToggle.querySelectorAll('span');
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            });
+            link.addEventListener('click', closeMobileMenu);
         });
     }
 

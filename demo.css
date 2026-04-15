@@ -1444,6 +1444,40 @@
     }
 }
 
+/* ── Data Disclaimer ── */
+
+.data-disclaimer {
+    padding: 2.5rem 0 1rem;
+}
+
+.data-disclaimer p {
+    font-size: 0.72rem;
+    line-height: 1.7;
+    color: var(--color-text-tertiary);
+    max-width: 740px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.data-disclaimer strong {
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+.detail-disclaimer {
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.7rem;
+    line-height: 1.65;
+    color: var(--color-text-tertiary);
+}
+
+.detail-disclaimer strong {
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
 @media (max-width: 480px) {
     .demo-hero {
         padding: 6.5rem 0 1.5rem;
