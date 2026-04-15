@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | InPractice Health</title>
+    <meta name="description"
+        content="Get in touch with InPractice Health. Whether you're a clinic or data partner, we'd love to hear from you.">
+
+    <meta property="og:title" content="Contact | InPractice Health">
+    <meta property="og:description"
+        content="Get in touch with InPractice Health. Whether you're a clinic or data partner, we'd love to hear from you.">
+    <meta property="og:image" content="https://www.inpracticehealth.com/assets/og-share-hero.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="InPractice Health: data infrastructure for aesthetic and longevity medicine.">
+    <meta property="og:url" content="https://www.inpracticehealth.com/contact.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="InPractice Health">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact | InPractice Health">
+    <meta name="twitter:description"
+        content="Get in touch with InPractice Health. Whether you're a clinic or data partner, we'd love to hear from you.">
+    <meta name="twitter:image" content="https://www.inpracticehealth.com/assets/og-share-hero.jpg">
+    <meta name="twitter:image:alt" content="InPractice Health: data infrastructure for aesthetic and longevity medicine.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal.css">
+</head>
+
+<body>
+
+    <!-- ── Navigation ── -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">InPractice Health</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <div class="nav-links-main">
+                    <a href="index.html#how-it-works">How It Works</a>
+                    <a href="index.html#audiences">For Clinics</a>
+                </div>
+                <div class="nav-links-actions">
+                    <a href="index.html#partners" class="nav-action-secondary">Join as a Data Partner</a>
+                    <a href="index.html#contact" class="nav-action-secondary">Join as a Clinic</a>
+                    <a href="demo.html" class="btn btn-primary nav-cta-demo">Demo</a>
+                </div>
+            </div>
+            <div class="mobile-menu-backdrop"></div>
+        </div>
+    </nav>
+
+    <!-- ── Contact Section ── -->
+    <section class="contact-page">
+        <div class="container">
+            <div class="contact-grid">
+
+                <!-- Left: Info Column -->
+                <div class="contact-info fade-in-up">
+                    <h1>Get in touch</h1>
+                    <p class="subhead">Whether you run a clinic or need clinical data to build products,
+                        we&rsquo;d love to hear from you.</p>
+
+                    <div class="contact-callout">
+                        <span class="contact-callout-icon">&#9889;</span>
+                        <div>
+                            <h3>Want to see it in action?</h3>
+                            <p>Explore sample de-identified clinical insights before reaching out.</p>
+                            <a href="demo.html">Try the demo</a>
+                        </div>
+                    </div>
+
+                    <ul class="contact-benefits">
+                        <li>
+                            <span class="check">&#10003;</span>
+                            <div>
+                                <h4>Zero workflow disruption</h4>
+                                <p>Integrates with your existing EMR, POS, and CRM systems.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check">&#10003;</span>
+                            <div>
+                                <h4>HIPAA-compliant de-identification</h4>
+                                <p>Expert determination method ensures patient privacy is mathematically guaranteed.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check">&#10003;</span>
+                            <div>
+                                <h4>Full data custody and ownership</h4>
+                                <p>You own your data. Always. We never take custody away from clinics.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check">&#10003;</span>
+                            <div>
+                                <h4>Revenue share for clinics</h4>
+                                <p>Earn non-patient revenue from every compliant dataset generated.</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <p class="contact-trust">Trusted by leading clinics and data partners</p>
+                </div>
+
+                <!-- Right: Form Column -->
+                <div class="fade-in-up delay-100">
+                    <form class="contact-form" id="form-contact">
+                        <div class="form-group">
+                            <label for="contact-type">I am a&hellip; <span class="required">*</span></label>
+                            <select id="contact-type" name="type" required>
+                                <option value="" disabled selected>Please select</option>
+                                <option value="Clinic">Clinic or practice owner</option>
+                                <option value="Partner">Data partner or researcher</option>
+                                <option value="Other">Other inquiry</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-first">First Name <span class="required">*</span></label>
+                                <input type="text" id="contact-first" name="first_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-last">Last Name <span class="required">*</span></label>
+                                <input type="text" id="contact-last" name="last_name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-email">Work Email <span class="required">*</span></label>
+                            <input type="email" id="contact-email" name="email" required
+                                placeholder="you@company.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-company">Company / Practice Name <span
+                                    class="required">*</span></label>
+                            <input type="text" id="contact-company" name="company" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-message">How can we help? <span class="required">*</span></label>
+                            <textarea id="contact-message" name="message" required
+                                placeholder="Tell us about your needs, data priorities, or questions."></textarea>
+                        </div>
+
+                        <p class="contact-legal">
+                            By submitting this form, you agree to our
+                            <a href="privacy-policy.html">Privacy Policy</a> and
+                            <a href="terms-of-service.html">Terms of Service</a>.
+                        </p>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+
+                    <div class="contact-success" id="contact-success">
+                        <span class="success-icon">&#10003;</span>
+                        <h3>Message received</h3>
+                        <p>Thanks for reaching out. A member of our team will be in touch within 24 hours.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="contact-footer-note">
+                Looking for a quick demo? <a href="demo.html">Try the demo &rarr;</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- ── Footer ── -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">InPractice Health</a>
+                    <p class="footer-tagline">Turning existing clinical data into non-patient revenue for clinics and
+                        real-world evidence for data partners.</p>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-nav-col">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="index.html#how-it-works">How It Works</a></li>
+                            <li><a href="index.html#audiences">For Clinics</a></li>
+                            <li><a href="index.html#audiences">For Data Partners</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav-col">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav-col">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-of-service.html">Terms of Service</a></li>
+                            <li><a href="#cookie-preferences">Cookie Preferences</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 InPractice Health. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ── Cookie Consent Banner ── -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>We use cookies to improve your experience. By continuing to visit this site you agree to our use of
+            cookies.</p>
+        <div class="cookie-banner-actions">
+            <button id="cookie-accept-all" class="btn btn-primary small">Accept All</button>
+            <button id="cookie-manage" class="btn btn-secondary small">Manage Preferences</button>
+        </div>
+    </div>
+
+    <!-- ── Cookie Preferences Modal ── -->
+    <div id="modal-cookie" class="modal-overlay">
+        <div class="modal-container cookie-modal-container">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+
+            <div class="cookie-modal-header">
+                <h3>Cookie Preferences</h3>
+                <p>Choose which cookies you allow. Essential cookies are required for the site to function.</p>
+            </div>
+
+            <div class="cookie-options">
+                <div class="cookie-option">
+                    <div class="cookie-option-info">
+                        <h4>Essential Cookies</h4>
+                        <p>Required for the website to function properly. These cannot be disabled.</p>
+                    </div>
+                    <span class="cookie-always-on">Always on</span>
+                </div>
+
+                <div class="cookie-option">
+                    <div class="cookie-option-info">
+                        <h4>Non-essential Cookies</h4>
+                        <p>Used for analytics and to improve your browsing experience.</p>
+                    </div>
+                    <label class="cookie-toggle">
+                        <input type="checkbox" id="cookie-nonessential" checked>
+                        <span class="cookie-toggle-track"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="cookie-modal-footer">
+                <button id="cookie-save" class="btn btn-primary" style="width: 100%">Save Preferences</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

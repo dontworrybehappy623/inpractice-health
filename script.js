@@ -143,6 +143,47 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ── Contact Page Form ──
+
+    const contactForm = document.getElementById('form-contact');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            const successEl = document.getElementById('contact-success');
+
+            btn.innerText = 'Sending...';
+            btn.disabled = true;
+
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
+            data.name = [data.first_name, data.last_name].filter(Boolean).join(' ');
+
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                cache: 'no-cache',
+                headers: { 'Content-Type': 'application/json' },
+                redirect: 'follow',
+                body: JSON.stringify(data)
+            })
+                .then(() => {
+                    contactForm.style.display = 'none';
+                    if (successEl) successEl.classList.add('visible');
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                })
+                .catch(err => {
+                    console.error('Error:', err);
+                    alert('Something went wrong. Please try again.');
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                });
+        });
+    }
+
     // ── FAQ Accordion ──
 
     document.querySelectorAll('.faq-question').forEach(button => {
@@ -156,6 +197,25 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             item.classList.toggle('open', !isOpen);
+        });
+    });
+
+    // ── About Page Tabs ──
+
+    document.querySelectorAll('.about-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const panelId = btn.getAttribute('aria-controls');
+
+            document.querySelectorAll('.about-tab-btn').forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+
+            document.querySelectorAll('.about-tab-panel').forEach(p => p.classList.remove('active'));
+            const panel = document.getElementById(panelId);
+            if (panel) panel.classList.add('active');
         });
     });
 
