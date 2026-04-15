@@ -1075,6 +1075,92 @@
     font-size: 0.85rem;
 }
 
+/* ── Chip search row ── */
+
+.gen-search-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.gen-search-wrap {
+    position: relative;
+    flex: 1;
+    max-width: 260px;
+}
+
+.gen-search-icon {
+    position: absolute;
+    left: 0.55rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-tertiary);
+    font-size: 0.78rem;
+    pointer-events: none;
+    line-height: 1;
+}
+
+.gen-search-input {
+    width: 100%;
+    padding: 0.35rem 0.6rem 0.35rem 1.65rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    background: var(--color-bg);
+    color: var(--color-text-primary);
+    transition: border-color 0.2s;
+}
+
+.gen-search-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.gen-search-input::placeholder {
+    color: var(--color-text-tertiary);
+}
+
+.gen-chip-count {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--color-text-tertiary);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.gen-chip-actions {
+    display: flex;
+    gap: 0.15rem;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.gen-chip-action {
+    padding: 0.2rem 0.45rem;
+    border: none;
+    background: none;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: background-color 0.15s;
+}
+
+.gen-chip-action:hover {
+    background-color: var(--color-accent-light);
+}
+
+.gen-chip-action-sep {
+    color: var(--color-border);
+    font-size: 0.72rem;
+    line-height: 1;
+    align-self: center;
+}
+
 /* ── Chips ── */
 
 .gen-chips {
@@ -1097,6 +1183,10 @@
     cursor: pointer;
     transition: all 0.15s;
     user-select: none;
+}
+
+.gen-chip.gen-chip-hidden {
+    display: none;
 }
 
 .gen-chip:hover {

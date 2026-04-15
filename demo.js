@@ -295,15 +295,15 @@ const INSIGHTS = [
         "id": "treatment-morpheus8-acne",
         "category": "treatment_outcomes",
         "tier": "standard",
-        "title": "Morpheus8 vs. RF Microneedling Competitors: Acne Scar Volume Reduction at 90 Days",
-        "summary": "Controlled comparison of four RF microneedling platforms (Morpheus8, Vivace, Potenza, and Genius) across 380 patients shows Morpheus8 with a statistically significant advantage in rolling scar volume reduction (34% vs. 26% for Potenza and 28% for Genius), likely attributable to its deeper penetration depth of up to 8mm. For boxcar scars, the gap narrows to non-significance across all four platforms.",
-        "preview": "Across 380 patients, Morpheus8 leads rolling scar volume reduction at 90 days (34% vs. 26% Potenza and 28% Genius); boxcar scars show no significant separation.",
+        "title": "Morpheus8 vs. Energy-Based Competitors: Acne Scar Volume Reduction at 90 Days",
+        "summary": "Controlled comparison of four energy platforms (Morpheus8, Exceed Microneedling, CO2RE Fractional Laser, and Halo Hybrid Fractional Laser) across 380 patients shows Morpheus8 with a statistically significant advantage in rolling scar volume reduction (34% vs. 26% for CO2RE and 28% for Exceed), likely attributable to its deeper RF penetration depth of up to 8mm. For boxcar scars, the gap narrows to non-significance across all four platforms.",
+        "preview": "Across 380 patients, Morpheus8 leads rolling scar volume reduction at 90 days (34% vs. 26% CO2RE and 28% Exceed); boxcar scars show no significant separation.",
         "content": {
-            "keyFinding": "Morpheus8 delivers materially greater rolling scar volume reduction at 90 days than Potenza or Genius, while boxcar scars respond similarly across platforms.",
+            "keyFinding": "Morpheus8 delivers materially greater rolling scar volume reduction at 90 days than CO2RE or Exceed, while boxcar scars respond similarly across platforms.",
             "supportingFindings": [
-                "Mean rolling scar volume reduction at day 90 is 34% for Morpheus8 versus 26% (Potenza) and 28% (Genius) under unified CV segmentation.",
+                "Mean rolling scar volume reduction at day 90 is 34% for Morpheus8 versus 26% (CO2RE) and 28% (Exceed) under unified CV segmentation.",
                 "Depth capability up to 8mm aligns with the rolling scar cohort where deeper fibrotic bands are common.",
-                "Vivace trails Morpheus8 on rolling scars but remains within the mid-pack cluster.",
+                "Halo Hybrid trails Morpheus8 on rolling scars but remains within the mid-pack cluster.",
                 "Boxcar scar endpoints show overlapping confidence intervals for all four devices."
             ],
             "recommendation": "Prioritize Morpheus8 when rolling scars dominate the treatment plan; choose among the four more on downtime and pricing when boxcar morphology predominates.",
@@ -329,17 +329,17 @@ const INSIGHTS = [
                 "boxcar_sig": "NS"
             },
             {
-                "platform": "Genius",
+                "platform": "Exceed Microneedling",
                 "rolling_scar_reduction_90d": "28%",
                 "boxcar_sig": "NS"
             },
             {
-                "platform": "Potenza",
+                "platform": "CO2RE Fractional Laser",
                 "rolling_scar_reduction_90d": "26%",
                 "boxcar_sig": "NS"
             },
             {
-                "platform": "Vivace",
+                "platform": "Halo Hybrid Fractional Laser",
                 "rolling_scar_reduction_90d": "25%",
                 "boxcar_sig": "NS"
             }
@@ -352,9 +352,9 @@ const INSIGHTS = [
         ],
         "entities": [
             "Morpheus8",
-            "Potenza",
-            "Genius",
-            "Vivace"
+            "Exceed Microneedling",
+            "CO2RE Fractional Laser",
+            "Halo Hybrid Fractional Laser"
         ],
         "publishedAt": "2026-03-21",
         "isFeatured": false,
@@ -365,15 +365,15 @@ const INSIGHTS = [
         "category": "treatment_outcomes",
         "tier": "standard",
         "title": "Combination Energy Protocols: Radiofrequency Added to IPL for Rosacea",
-        "summary": "Multi-modality protocol analysis of 290 rosacea patients comparing IPL-only series (Sciton BBL, Candela Nordlys) against IPL plus radiofrequency (Thermage FLX, XERF) shows combination protocols deliver 31% greater erythema score improvement at 12 weeks. The incremental gain concentrates almost entirely in moderate-to-severe baseline cases. Mild rosacea (grade 1-2) shows no statistically significant benefit from adding RF.",
+        "summary": "Multi-modality protocol analysis of 290 rosacea patients comparing IPL-only series (BBL HERO, Lumecca IPL) against IPL plus radiofrequency (TempSure Envi, XERF) shows combination protocols deliver 31% greater erythema score improvement at 12 weeks. The incremental gain concentrates almost entirely in moderate-to-severe baseline cases. Mild rosacea (grade 1-2) shows no statistically significant benefit from adding RF.",
         "preview": "Among 290 rosacea patients, IPL plus RF yields 31% greater erythema improvement at 12 weeks versus IPL alone, driven by moderate-to-severe baselines; mild disease shows no significant RF benefit.",
         "content": {
             "keyFinding": "Adding RF to IPL improves erythema scores at 12 weeks by about a third versus IPL alone, but only moderate-to-severe baselines meaningfully benefit.",
             "supportingFindings": [
-                "Twelve-week mean erythema index improvement is 31% higher for combination arms versus IPL-only when pooling BBL and Nordlys cohorts.",
+                "Twelve-week mean erythema index improvement is 31% higher for combination arms versus IPL-only when pooling BBL HERO and Lumecca cohorts.",
                 "Moderate-to-severe IGA strata account for the majority of the incremental effect size.",
                 "Mild (grades 1-2) cohorts show overlapping confidence intervals between IPL-only and IPL+RF.",
-                "RF adjuncts were primarily Thermage FLX and XERF under conservative temperature caps."
+                "RF adjuncts were primarily TempSure Envi and XERF under conservative temperature caps."
             ],
             "recommendation": "Reserve combination IPL+RF for erythematous moderate-to-severe rosacea. For mild presentations, default to IPL-only series to reduce cost, time, and thermal load.",
             "limitations": "Concurrent topical prescriptions were not fully controlled. RF device assignment was partially site-driven."
@@ -419,9 +419,9 @@ const INSIGHTS = [
             "protocol"
         ],
         "entities": [
-            "BBL",
-            "Nordlys",
-            "Thermage FLX",
+            "BBL HERO",
+            "Lumecca IPL",
+            "TempSure Envi",
             "XERF"
         ],
         "publishedAt": "2026-03-12",
@@ -910,16 +910,16 @@ const INSIGHTS = [
         "id": "treatment-xerf-neck",
         "category": "treatment_outcomes",
         "tier": "premium",
-        "title": "XERF Dual-Frequency RF vs. Ultherapy, Thermage, and Sofwave for Neck Laxity: 6-Month Outcomes",
-        "summary": "Standardized CV analysis of cervicomental angle improvement across 540 patients compares Cynosure Lutronic XERF, FDA-cleared August 2025 using dual-frequency monopolar RF (6.78 MHz + 2 MHz), against Ultherapy, Thermage FLX, and Sofwave at six months post-treatment. XERF delivers comparable lifting to Ultherapy in mild-to-moderate laxity with significantly lower pain scores, while Sofwave's 1.5mm-only penetration depth leaves it trailing on true submental tightening.",
-        "preview": "At six months across 540 patients, XERF matches Ultherapy lifting for mild-to-moderate neck laxity with lower pain scores; Sofwave lags on submental tightening due to shallower penetration.",
+        "title": "XERF Dual-Frequency RF vs. Ultherapy, TempSure Envi, and NuFACE Trinity+ for Neck Laxity: 6-Month Outcomes",
+        "summary": "Standardized CV analysis of cervicomental angle improvement across 540 patients compares Cynosure Lutronic XERF, FDA-cleared August 2025 using dual-frequency monopolar RF (6.78 MHz + 2 MHz), against Ultherapy, TempSure Envi, and NuFACE Trinity+ at six months post-treatment. XERF delivers comparable lifting to Ultherapy in mild-to-moderate laxity with significantly lower pain scores, while NuFACE Trinity+'s microcurrent-only approach leaves it trailing on true submental tightening.",
+        "preview": "At six months across 540 patients, XERF matches Ultherapy lifting for mild-to-moderate neck laxity with lower pain scores; NuFACE Trinity+ lags on submental tightening due to shallower energy delivery.",
         "content": {
-            "keyFinding": "XERF achieves Ultherapy-comparable cervicomental angle gains for mild-to-moderate laxity with better tolerability, while Sofwave underperforms on submental tightening.",
+            "keyFinding": "XERF achieves Ultherapy-comparable cervicomental angle gains for mild-to-moderate laxity with better tolerability, while NuFACE Trinity+ underperforms on submental tightening.",
             "supportingFindings": [
                 "Six-month CV cervicomental angle deltas for XERF overlap Ultherapy confidence intervals in mild-to-moderate strata.",
                 "Patient-reported pain peaks are lower for XERF than Ultherapy under protocolized analgesia rules.",
-                "Thermage FLX remains competitive but trends slightly behind Ultherapy/XERF in the submental vector specifically.",
-                "Sofwave's shallow focal depth corresponds with weaker submental tightening despite acceptable jawline skin quality gains."
+                "TempSure Envi remains competitive but trends slightly behind Ultherapy/XERF in the submental vector specifically.",
+                "NuFACE Trinity+'s microcurrent delivery corresponds with weaker submental tightening despite acceptable jawline skin quality gains."
             ],
             "recommendation": "Position XERF where patients prioritize lifting with lower pain burden; reserve Ultherapy for cases needing micro-focused depth that XERF protocols have not yet matched in your hands.",
             "limitations": "Six-month horizon misses longer durability questions. Operators had uneven prior device experience."
@@ -949,14 +949,14 @@ const INSIGHTS = [
                 "pain_score": "Higher"
             },
             {
-                "device": "Thermage FLX",
+                "device": "TempSure Envi",
                 "cma_improvement_mo6": "Moderate+",
                 "pain_score": "Moderate"
             },
             {
-                "device": "Sofwave",
+                "device": "NuFACE Trinity+",
                 "submental_tightening": "Trailing",
-                "focal_depth_mm": "~1.5"
+                "modality": "Microcurrent"
             }
         ],
         "tags": [
@@ -969,8 +969,8 @@ const INSIGHTS = [
         "entities": [
             "XERF",
             "Ultherapy",
-            "Thermage FLX",
-            "Sofwave"
+            "TempSure Envi",
+            "NuFACE Trinity+"
         ],
         "publishedAt": "2026-03-07",
         "isFeatured": false,
@@ -1152,42 +1152,75 @@ const CLINIC_POOL = [
 // ══════════════════════════════════════
 
 const POOL_CONDITIONS = [
-    'Acne scarring', 'Body contouring', 'Excessive sweating', 'Fine lines',
-    'Hyperpigmentation', 'Melasma', 'Neck laxity', 'Rosacea', 'Skin laxity',
-    'Texture irregularity', 'Vascular lesions', 'Volume loss',
+    'Acne vulgaris', 'Actinic damage', 'Androgenetic alopecia', 'Atopic dermatitis',
+    'Cellulite', 'Diffuse hair thinning', 'Enlarged pores', 'Hormonal acne',
+    'Hyperlipidemia', 'Hyperpigmentation', 'Hypertrophic scarring', 'Insulin resistance',
+    'Keratosis pilaris', 'Melasma', 'Nasolabial fold laxity', 'Neck skin laxity',
+    'Periorbital wrinkles', 'Photoaging', 'Rosacea', 'Submental fullness',
+    'Uneven skin texture', 'Vitamin D deficiency', 'Wrinkles',
 ];
 const POOL_SUBSTANCES = [
-    'Belotero', 'Botox', 'DAXXIFY', 'Dysport', 'Jeuveau',
-    'Juvederm Voluma', 'Kybella', 'Radiesse', 'Restylane Lyft',
-    'RHA Collection', 'Sculptra', 'Semaglutide', 'Tirzepatide', 'Xeomin',
+    'Alpha hydroxy acid', 'Azelaic acid', 'BPC-157', 'Botulinum toxin type A',
+    'Coenzyme Q10', 'Copper peptide complex', 'Deoxycholic acid', 'Exosome complex',
+    'Glutathione', 'Hydroquinone', 'Hyaluronic acid booster', 'Hyaluronic acid filler',
+    'L-Ascorbic acid', 'Minoxidil', 'NAD+', 'Niacinamide', 'Nicotinamide mononucleotide',
+    'Omega-3 fatty acids', 'Platelet-rich plasma', 'Retinol', 'Semaglutide',
+    'Spironolactone', 'Testosterone cypionate', 'Tirzepatide', 'Tranexamic acid',
+    'Tretinoin', 'Vitamin D3',
 ];
 const POOL_DEVICES = [
-    'BBL HERO', 'Candela Nordlys', 'CoolSculpting', 'Genius RF', 'Gentle Pro',
-    'Morpheus8', 'Potenza', 'Sciton MOXI', 'Sofwave', 'Thermage FLX',
-    'Ultherapy', 'Vivace',
+    'BBL HERO', 'CO2RE Fractional Laser', 'CoolSculpting Elite', 'DermLite DL4',
+    'EmSculpt NEO', 'Exceed Microneedling', 'Halo Hybrid Fractional Laser',
+    'HydraFacial Elite', 'Hologic Horizon DXA', 'Lumecca IPL', 'Morpheus8',
+    'NuFACE Trinity+', 'Celluma Pro LED', 'PicoSure Pro', 'TempSure Envi',
+    'Ultherapy', 'VISIA Skin Analysis', 'XERF',
 ];
 const POOL_ANATOMY = [
-    'Abdomen', 'Chin', 'Decolletage', 'Flanks', 'Forehead',
-    'Glabella', 'Jawline', 'Midface', 'Neck', 'Perioral',
-    'Periorbital', 'Thighs', 'Upper arms',
+    'Abdomen', 'Cheeks', 'Chin', 'Decolletage', 'Flanks', 'Forehead', 'Full Face',
+    'Hands', 'Inner thighs', 'Jawline', 'Lips', 'Nasolabial folds', 'Neck',
+    'Periorbital area', 'Scalp', 'Submental area', 'Temples', 'Thighs', 'Upper arms',
 ];
-const POOL_ENCOUNTER_TYPES = ['consultation', 'follow_up', 'lab_visit', 'procedure_visit', 'telehealth'];
+const POOL_ENCOUNTER_TYPES = ['consultation', 'follow_up', 'lab_visit', 'procedure_visit', 'telehealth', 'other'];
 const POOL_INTERVENTION_CATS = ['lifestyle_plan', 'procedure', 'product_regimen', 'therapy_protocol'];
 
-// Weighted correlation tables: condition -> likely substances/devices/anatomy
+// Weighted correlation tables: condition -> likely substances/devices/anatomy (indices into POOL_* arrays)
+// POOL_SUBSTANCES: 0=Alpha hydroxy acid 1=Azelaic acid 2=BPC-157 3=Botulinum toxin type A
+//   4=Coenzyme Q10 5=Copper peptide complex 6=Deoxycholic acid 7=Exosome complex
+//   8=Glutathione 9=Hydroquinone 10=HA booster 11=HA filler 12=L-Ascorbic acid
+//   13=Minoxidil 14=NAD+ 15=Niacinamide 16=NMN 17=Omega-3 18=PRP 19=Retinol
+//   20=Semaglutide 21=Spironolactone 22=Testosterone cypionate 23=Tirzepatide
+//   24=Tranexamic acid 25=Tretinoin 26=Vitamin D3
+// POOL_DEVICES: 0=BBL HERO 1=CO2RE Frac 2=CoolSculpting Elite 3=DermLite DL4
+//   4=EmSculpt NEO 5=Exceed Microneedling 6=Halo Hybrid Frac 7=HydraFacial Elite
+//   8=Hologic DXA 9=Lumecca IPL 10=Morpheus8 11=NuFACE Trinity+ 12=Celluma Pro LED
+//   13=PicoSure Pro 14=TempSure Envi 15=Ultherapy 16=VISIA 17=XERF
+// POOL_ANATOMY: 0=Abdomen 1=Cheeks 2=Chin 3=Decolletage 4=Flanks 5=Forehead
+//   6=Full Face 7=Hands 8=Inner thighs 9=Jawline 10=Lips 11=Nasolabial folds
+//   12=Neck 13=Periorbital area 14=Scalp 15=Submental area 16=Temples 17=Thighs 18=Upper arms
 const CONDITION_PROFILES = {
-    'Fine lines':           { substances: [1,2,3,4,13], devices: [], anatomy: [4,5,10] },
-    'Volume loss':          { substances: [0,5,7,8,9,10], devices: [], anatomy: [1,6,7,9] },
-    'Acne scarring':        { substances: [], devices: [3,5,6,11], anatomy: [7,9] },
-    'Rosacea':              { substances: [], devices: [0,1], anatomy: [7,10] },
-    'Skin laxity':          { substances: [7,10], devices: [8,9,10], anatomy: [1,6,8] },
-    'Hyperpigmentation':    { substances: [], devices: [0,1,7], anatomy: [2,7] },
-    'Excessive sweating':   { substances: [1,3], devices: [], anatomy: [0,11,12] },
-    'Body contouring':      { substances: [11,12], devices: [2], anatomy: [0,3,11] },
-    'Melasma':              { substances: [], devices: [0,7], anatomy: [4,7] },
-    'Vascular lesions':     { substances: [], devices: [0,1], anatomy: [2,7,8] },
-    'Neck laxity':          { substances: [7,10], devices: [8,9,10], anatomy: [8] },
-    'Texture irregularity': { substances: [], devices: [5,6,7], anatomy: [2,7,9] },
+    'Acne vulgaris':            { substances: [1,15,21,25],       devices: [7,13],              anatomy: [1,6] },
+    'Actinic damage':           { substances: [0,12,19,25],       devices: [0,6,13],            anatomy: [3,6,7] },
+    'Androgenetic alopecia':    { substances: [13,18,21],         devices: [12],                anatomy: [14] },
+    'Atopic dermatitis':        { substances: [15,19,26],         devices: [12],                anatomy: [6,18] },
+    'Cellulite':                { substances: [2,5],              devices: [4,10,14],           anatomy: [0,8,17] },
+    'Diffuse hair thinning':    { substances: [13,18,22,26],      devices: [12],                anatomy: [14] },
+    'Enlarged pores':           { substances: [0,15,19,25],       devices: [7,10],              anatomy: [1,6] },
+    'Hormonal acne':            { substances: [1,21,25],          devices: [7,12],              anatomy: [1,6,9] },
+    'Hyperlipidemia':           { substances: [17,20,23],         devices: [],                  anatomy: [] },
+    'Hyperpigmentation':        { substances: [9,12,24,25],       devices: [0,9,13],            anatomy: [1,5,6] },
+    'Hypertrophic scarring':    { substances: [3,5,11],           devices: [1,5,10],            anatomy: [1,6] },
+    'Insulin resistance':       { substances: [16,20,23],         devices: [8],                 anatomy: [] },
+    'Keratosis pilaris':        { substances: [0,19,25],          devices: [7],                 anatomy: [18] },
+    'Melasma':                  { substances: [9,12,24],          devices: [0,13],              anatomy: [1,5,6] },
+    'Nasolabial fold laxity':   { substances: [3,11],             devices: [10,15,17],          anatomy: [11] },
+    'Neck skin laxity':         { substances: [3,7,11],           devices: [10,15,17],          anatomy: [12] },
+    'Periorbital wrinkles':     { substances: [3,5,19,25],        devices: [11,13],             anatomy: [13,16] },
+    'Photoaging':               { substances: [12,19,25],         devices: [0,6,13],            anatomy: [3,6,7] },
+    'Rosacea':                  { substances: [1,15],             devices: [0,9],               anatomy: [1,6] },
+    'Submental fullness':       { substances: [6],                devices: [2],                 anatomy: [2,15] },
+    'Uneven skin texture':      { substances: [0,19,25],          devices: [5,7,10],            anatomy: [1,3,6] },
+    'Vitamin D deficiency':     { substances: [26],               devices: [],                  anatomy: [] },
+    'Wrinkles':                 { substances: [3,11,19,25],       devices: [10,15,17],          anatomy: [5,6,13,16] },
 };
 
 function generateSyntheticPool() {
@@ -1295,7 +1328,7 @@ const COHORT_CONFIGS = {
     'provider-device-utilization': {
         age: [25, 65], female: 0.75, months: 8,
         fields: {
-            platform: ['BBL HERO', 'Morpheus8', 'Gentle Pro', 'Ultherapy', 'Potenza'],
+            platform: ['BBL HERO', 'Morpheus8', 'HydraFacial Elite', 'Ultherapy', 'Lumecca IPL'],
             utilization_quartile: ['Top', 'Upper-mid', 'Lower-mid', 'Bottom'],
             tx_per_week_mo6: (row, _r, _p, ri) => {
                 if (row.utilization_quartile === 'Top') return ri(16, 24);
@@ -1314,7 +1347,7 @@ const COHORT_CONFIGS = {
     'treatment-morpheus8-acne': {
         age: [19, 48], female: 0.58, months: 4,
         fields: {
-            platform: ['Morpheus8', 'Genius', 'Potenza', 'Vivace'],
+            platform: ['Morpheus8', 'Exceed Microneedling', 'CO2RE Fractional Laser', 'Halo Hybrid Fractional Laser'],
             scar_morphology: ['Rolling', 'Boxcar', 'Mixed'],
             reduction_90d_pct: (row, _r, _p, ri) => {
                 if (row.scar_morphology !== 'Rolling') return ri(22, 32) + '%';
@@ -1337,7 +1370,7 @@ const COHORT_CONFIGS = {
                 if (sev === 3) return ri(38 + base, 56 + base) + '%';
                 return ri(28 + base, 52 + base) + '%';
             },
-            device_ipl: ['Sciton BBL', 'Candela Nordlys'],
+            device_ipl: ['BBL HERO', 'Lumecca IPL'],
         },
     },
     'cohort-filler-ae': {
@@ -1445,11 +1478,11 @@ const COHORT_CONFIGS = {
     'treatment-xerf-neck': {
         age: [38, 72], female: 0.81, months: 7,
         fields: {
-            device: ['XERF', 'Ultherapy', 'Thermage FLX', 'Sofwave'],
+            device: ['XERF', 'Ultherapy', 'TempSure Envi', 'NuFACE Trinity+'],
             laxity_grade: ['Mild', 'Moderate'],
             cma_improvement_score: (row, _r, _p, ri) => {
-                if (row.device === 'Sofwave') return ri(52, 68);
-                if (row.device === 'Thermage FLX') return ri(62, 78);
+                if (row.device === 'NuFACE Trinity+') return ri(52, 68);
+                if (row.device === 'TempSure Envi') return ri(62, 78);
                 return ri(70, 88);
             },
             peak_pain_0_10: (row, _r, _p, ri) =>
@@ -2204,42 +2237,150 @@ document.addEventListener('keydown', (e) => {
     const selectedAnatomy = new Set();
 
     // ── Chip renderer helper ──
-    function renderChips(containerId, values, selectedSet, labelFn) {
+    function renderChips(containerId, values, selectedSet, opts) {
+        if (typeof opts === 'function') opts = { labelFn: opts };
+        opts = opts || {};
+        const labelFn = opts.labelFn;
+        const searchable = opts.searchable === true;
+
         const container = document.getElementById(containerId);
         if (!container) return;
         container.innerHTML = '';
+
+        const filterGroup = container.closest('.gen-filter-group');
+        const existingSearchRow = filterGroup && filterGroup.querySelector('.gen-search-row');
+        if (existingSearchRow) existingSearchRow.remove();
+
+        const chipEls = [];
+        const chipValues = [];
+
         values.forEach(v => {
+            const label = labelFn ? labelFn(v) : v;
             const btn = document.createElement('button');
             btn.type = 'button';
             btn.className = 'gen-chip' + (selectedSet.has(v) ? ' selected' : '');
-            btn.textContent = labelFn ? labelFn(v) : v;
+            btn.textContent = label;
+            btn.dataset.value = v;
+            btn.dataset.label = label.toLowerCase();
             btn.addEventListener('click', () => {
                 if (selectedSet.has(v)) selectedSet.delete(v);
                 else selectedSet.add(v);
                 btn.classList.toggle('selected');
+                if (countEl) updateCount();
                 applyFilters();
             });
             container.appendChild(btn);
+            chipEls.push(btn);
+            chipValues.push({ value: v, label: label.toLowerCase(), el: btn });
         });
+
+        let countEl = null;
+
+        if (searchable && filterGroup) {
+            const row = document.createElement('div');
+            row.className = 'gen-search-row';
+
+            const wrap = document.createElement('div');
+            wrap.className = 'gen-search-wrap';
+            const icon = document.createElement('span');
+            icon.className = 'gen-search-icon';
+            icon.textContent = '\u2315';
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'gen-search-input';
+            input.placeholder = 'Filter\u2026';
+            wrap.appendChild(icon);
+            wrap.appendChild(input);
+
+            countEl = document.createElement('span');
+            countEl.className = 'gen-chip-count';
+
+            const actions = document.createElement('span');
+            actions.className = 'gen-chip-actions';
+            const selAllBtn = document.createElement('button');
+            selAllBtn.type = 'button';
+            selAllBtn.className = 'gen-chip-action';
+            selAllBtn.textContent = 'Select All';
+            const sep = document.createElement('span');
+            sep.className = 'gen-chip-action-sep';
+            sep.textContent = '|';
+            const clearBtn = document.createElement('button');
+            clearBtn.type = 'button';
+            clearBtn.className = 'gen-chip-action';
+            clearBtn.textContent = 'Clear';
+            actions.appendChild(selAllBtn);
+            actions.appendChild(sep);
+            actions.appendChild(clearBtn);
+
+            row.appendChild(wrap);
+            row.appendChild(countEl);
+            row.appendChild(actions);
+            filterGroup.insertBefore(row, container);
+
+            function getVisible() {
+                return chipValues.filter(c => !c.el.classList.contains('gen-chip-hidden'));
+            }
+
+            function updateCount() {
+                const visible = getVisible();
+                const selCount = visible.filter(c => selectedSet.has(c.value)).length;
+                countEl.textContent = selCount
+                    ? selCount + ' sel \u00B7 ' + visible.length + ' of ' + values.length
+                    : visible.length + ' of ' + values.length;
+            }
+
+            let debounceTimer = null;
+            input.addEventListener('input', () => {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    const q = input.value.trim().toLowerCase();
+                    chipValues.forEach(c => {
+                        c.el.classList.toggle('gen-chip-hidden', q !== '' && !c.label.includes(q));
+                    });
+                    updateCount();
+                }, 80);
+            });
+
+            selAllBtn.addEventListener('click', () => {
+                getVisible().forEach(c => {
+                    selectedSet.add(c.value);
+                    c.el.classList.add('selected');
+                });
+                updateCount();
+                applyFilters();
+            });
+
+            clearBtn.addEventListener('click', () => {
+                chipValues.forEach(c => {
+                    selectedSet.delete(c.value);
+                    c.el.classList.remove('selected');
+                });
+                updateCount();
+                applyFilters();
+            });
+
+            updateCount();
+        }
     }
 
     const ENCOUNTER_LABELS = {
         consultation: 'Consultation', follow_up: 'Follow-up',
-        procedure_visit: 'Procedure', lab_visit: 'Lab Visit', telehealth: 'Telehealth',
+        procedure_visit: 'Procedure', lab_visit: 'Lab Visit',
+        telehealth: 'Telehealth', other: 'Other',
     };
 
     // ── Initialize Step 1 chips ──
-    renderChips('gen-encounter-chips', POOL_ENCOUNTER_TYPES, selectedEncounters, v => ENCOUNTER_LABELS[v] || v);
+    renderChips('gen-encounter-chips', POOL_ENCOUNTER_TYPES, selectedEncounters, { labelFn: v => ENCOUNTER_LABELS[v] || v });
     renderChips('gen-sex-chips', ['female', 'male'], selectedSex,
-        v => v.charAt(0).toUpperCase() + v.slice(1));
+        { labelFn: v => v.charAt(0).toUpperCase() + v.slice(1) });
 
-    // ── Initialize Step 2 chips (all unselected = show all) ──
-    renderChips('gen-condition-chips', POOL_CONDITIONS, selectedConditions);
+    // ── Initialize Step 2 chips (searchable for large groups) ──
+    renderChips('gen-condition-chips', POOL_CONDITIONS, selectedConditions, { searchable: true });
     renderChips('gen-intervention-chips', POOL_INTERVENTION_CATS, selectedInterventions,
-        v => v.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase()));
-    renderChips('gen-substance-chips', POOL_SUBSTANCES, selectedSubstances);
-    renderChips('gen-device-chips', POOL_DEVICES, selectedDevices);
-    renderChips('gen-anatomy-chips', POOL_ANATOMY, selectedAnatomy);
+        { labelFn: v => v.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) });
+    renderChips('gen-substance-chips', POOL_SUBSTANCES, selectedSubstances, { searchable: true });
+    renderChips('gen-device-chips', POOL_DEVICES, selectedDevices, { searchable: true });
+    renderChips('gen-anatomy-chips', POOL_ANATOMY, selectedAnatomy, { searchable: true });
 
     // ── Date inputs ──
     const earliest = SYNTHETIC_POOL.reduce((m, r) => r.occurred_at < m ? r.occurred_at : m, '9999');
@@ -2574,11 +2715,11 @@ Use the actual cohort numbers provided. Make findings specific and quantitative.
 
     // ── Simulated fallback ──
     function simulateInsight(userPrompt, ctx) {
-        const topCond = ctx.topConditions[0] || 'Fine lines';
-        const topSub = ctx.topSubstances[0] || 'Botox';
-        const secondSub = ctx.topSubstances[1] || 'Dysport';
+        const topCond = ctx.topConditions[0] || 'Wrinkles';
+        const topSub = ctx.topSubstances[0] || 'Botulinum toxin type A';
+        const secondSub = ctx.topSubstances[1] || 'Hyaluronic acid filler';
         const topDev = ctx.topDevices[0] || 'Morpheus8';
-        const topAnat = ctx.topAnatomy[0] || 'Midface';
+        const topAnat = ctx.topAnatomy[0] || 'Full Face';
 
         const rng = mulberry32(hashStr(userPrompt + ctx.patientCount));
         const rf = (min, max) => +(min + rng() * (max - min)).toFixed(1);
@@ -2622,8 +2763,8 @@ Use the actual cohort numbers provided. Make findings specific and quantitative.
             provingData: [
                 { substance: topSub, patients: ri(Math.round(ctx.patientCount * 0.3), Math.round(ctx.patientCount * 0.4)), improvement_pct: improvementPct + '%', retention_12mo: retentionPct + '%', top_anatomy: topAnat },
                 { substance: secondSub, patients: ri(Math.round(ctx.patientCount * 0.2), Math.round(ctx.patientCount * 0.3)), improvement_pct: (improvementPct - ri(5, 12)) + '%', retention_12mo: (retentionPct - ri(8, 18)) + '%', top_anatomy: topAnat },
-                { substance: ctx.topSubstances[2] || 'Sculptra', patients: ri(Math.round(ctx.patientCount * 0.1), Math.round(ctx.patientCount * 0.2)), improvement_pct: pct(), retention_12mo: pct(), top_anatomy: ctx.topAnatomy[1] || 'Perioral' },
-                { substance: ctx.topSubstances[3] || 'Radiesse', patients: ri(Math.round(ctx.patientCount * 0.05), Math.round(ctx.patientCount * 0.15)), improvement_pct: pct(), retention_12mo: pct(), top_anatomy: ctx.topAnatomy[2] || 'Chin' },
+                { substance: ctx.topSubstances[2] || 'Hyaluronic acid filler', patients: ri(Math.round(ctx.patientCount * 0.1), Math.round(ctx.patientCount * 0.2)), improvement_pct: pct(), retention_12mo: pct(), top_anatomy: ctx.topAnatomy[1] || 'Lips' },
+                { substance: ctx.topSubstances[3] || 'Retinol', patients: ri(Math.round(ctx.patientCount * 0.05), Math.round(ctx.patientCount * 0.15)), improvement_pct: pct(), retention_12mo: pct(), top_anatomy: ctx.topAnatomy[2] || 'Chin' },
             ],
             tags: [topCond.toLowerCase().replace(/ /g, '-'), topSub.toLowerCase(), secondSub.toLowerCase(), 'comparative', 'outcomes'],
             entities: [topSub, secondSub, topDev, topAnat, topCond],
