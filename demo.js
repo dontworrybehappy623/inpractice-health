@@ -1152,43 +1152,42 @@ const CLINIC_POOL = [
 // ══════════════════════════════════════
 
 const POOL_CONDITIONS = [
-    'Fine lines', 'Volume loss', 'Acne scarring', 'Rosacea', 'Skin laxity',
-    'Hyperpigmentation', 'Excessive sweating', 'Body contouring', 'Melasma',
-    'Vascular lesions', 'Neck laxity', 'Texture irregularity',
+    'Acne scarring', 'Body contouring', 'Excessive sweating', 'Fine lines',
+    'Hyperpigmentation', 'Melasma', 'Neck laxity', 'Rosacea', 'Skin laxity',
+    'Texture irregularity', 'Vascular lesions', 'Volume loss',
 ];
 const POOL_SUBSTANCES = [
-    'Botox', 'Dysport', 'Xeomin', 'Jeuveau', 'DAXXIFY',
-    'Juvederm Voluma', 'Restylane Lyft', 'Sculptra', 'Radiesse',
-    'RHA Collection', 'Belotero', 'Kybella',
-    'Semaglutide', 'Tirzepatide',
+    'Belotero', 'Botox', 'DAXXIFY', 'Dysport', 'Jeuveau',
+    'Juvederm Voluma', 'Kybella', 'Radiesse', 'Restylane Lyft',
+    'RHA Collection', 'Sculptra', 'Semaglutide', 'Tirzepatide', 'Xeomin',
 ];
 const POOL_DEVICES = [
-    'Morpheus8', 'BBL HERO', 'Ultherapy', 'Thermage FLX', 'Sofwave',
-    'CoolSculpting', 'Potenza', 'Genius RF', 'Gentle Pro', 'Vivace',
-    'Candela Nordlys', 'Sciton MOXI',
+    'BBL HERO', 'Candela Nordlys', 'CoolSculpting', 'Genius RF', 'Gentle Pro',
+    'Morpheus8', 'Potenza', 'Sciton MOXI', 'Sofwave', 'Thermage FLX',
+    'Ultherapy', 'Vivace',
 ];
 const POOL_ANATOMY = [
-    'Forehead', 'Glabella', 'Periorbital', 'Midface', 'Perioral',
-    'Chin', 'Jawline', 'Neck', 'Abdomen', 'Flanks',
-    'Upper arms', 'Thighs', 'Decolletage',
+    'Abdomen', 'Chin', 'Decolletage', 'Flanks', 'Forehead',
+    'Glabella', 'Jawline', 'Midface', 'Neck', 'Perioral',
+    'Periorbital', 'Thighs', 'Upper arms',
 ];
-const POOL_ENCOUNTER_TYPES = ['consultation', 'follow_up', 'procedure_visit', 'lab_visit', 'telehealth'];
-const POOL_INTERVENTION_CATS = ['procedure', 'therapy_protocol', 'lifestyle_plan', 'product_regimen'];
+const POOL_ENCOUNTER_TYPES = ['consultation', 'follow_up', 'lab_visit', 'procedure_visit', 'telehealth'];
+const POOL_INTERVENTION_CATS = ['lifestyle_plan', 'procedure', 'product_regimen', 'therapy_protocol'];
 
 // Weighted correlation tables: condition -> likely substances/devices/anatomy
 const CONDITION_PROFILES = {
-    'Fine lines':           { substances: [0,1,2,3,4], devices: [], anatomy: [0,1,2] },
-    'Volume loss':          { substances: [5,6,7,8,9,10], devices: [], anatomy: [3,4,5,6] },
-    'Acne scarring':        { substances: [], devices: [0,6,7,9], anatomy: [3,4] },
-    'Rosacea':              { substances: [], devices: [1,10], anatomy: [3,2] },
-    'Skin laxity':          { substances: [7,8], devices: [2,3,4], anatomy: [5,6,7] },
-    'Hyperpigmentation':    { substances: [], devices: [1,11,10], anatomy: [3,12] },
-    'Excessive sweating':   { substances: [0,1], devices: [], anatomy: [8,10,11] },
-    'Body contouring':      { substances: [12,13], devices: [5], anatomy: [8,9,11] },
-    'Melasma':              { substances: [], devices: [1,11], anatomy: [0,3] },
-    'Vascular lesions':     { substances: [], devices: [1,10], anatomy: [3,7,12] },
-    'Neck laxity':          { substances: [7,8], devices: [2,3,4], anatomy: [7] },
-    'Texture irregularity': { substances: [], devices: [0,6,11], anatomy: [3,4,12] },
+    'Fine lines':           { substances: [1,2,3,4,13], devices: [], anatomy: [4,5,10] },
+    'Volume loss':          { substances: [0,5,7,8,9,10], devices: [], anatomy: [1,6,7,9] },
+    'Acne scarring':        { substances: [], devices: [3,5,6,11], anatomy: [7,9] },
+    'Rosacea':              { substances: [], devices: [0,1], anatomy: [7,10] },
+    'Skin laxity':          { substances: [7,10], devices: [8,9,10], anatomy: [1,6,8] },
+    'Hyperpigmentation':    { substances: [], devices: [0,1,7], anatomy: [2,7] },
+    'Excessive sweating':   { substances: [1,3], devices: [], anatomy: [0,11,12] },
+    'Body contouring':      { substances: [11,12], devices: [2], anatomy: [0,3,11] },
+    'Melasma':              { substances: [], devices: [0,7], anatomy: [4,7] },
+    'Vascular lesions':     { substances: [], devices: [0,1], anatomy: [2,7,8] },
+    'Neck laxity':          { substances: [7,10], devices: [8,9,10], anatomy: [8] },
+    'Texture irregularity': { substances: [], devices: [5,6,7], anatomy: [2,7,9] },
 };
 
 function generateSyntheticPool() {
