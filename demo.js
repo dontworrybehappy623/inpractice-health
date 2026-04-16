@@ -1926,7 +1926,7 @@ function renderDetailFull(insight) {
     </div>
     ${renderCohortSection(insight)}
     <div class="detail-disclaimer">
-        <strong>Data Disclaimer</strong> — These findings are derived from de-identified data across InPractice Health's participating clinic network, representing a subset of all real-world clinical activity. InPractice Health is a neutral data infrastructure layer and does not endorse, promote, or disparage any brand, product, or provider. All findings are observational and subject to selection bias, confounding, and the limitations inherent in retrospective analysis.
+        <strong>Data Disclaimer</strong> — These findings are derived from de-identified data across InPractice Health's participating clinic network, representing a subset of all real-world clinical activity. InPractice Health is a neutral data infrastructure layer and does not endorse, promote, or disparage any brand, product, or provider. All findings are observational and subject to selection bias, confounding, and the limitations inherent in retrospective analysis. Not intended as a medical device. This is not intended to cure or treat any disease. Please consult your medical practitioner.
     </div>`;
 }
 
@@ -1969,7 +1969,7 @@ function renderDetailLocked(insight) {
         </div>
     </div>
     <div class="detail-disclaimer">
-        <strong>Data Disclaimer</strong> — These findings are derived from de-identified data across InPractice Health's participating clinic network, representing a subset of all real-world clinical activity. InPractice Health is a neutral data infrastructure layer and does not endorse, promote, or disparage any brand, product, or provider. All findings are observational and subject to selection bias, confounding, and the limitations inherent in retrospective analysis.
+        <strong>Data Disclaimer</strong> — These findings are derived from de-identified data across InPractice Health's participating clinic network, representing a subset of all real-world clinical activity. InPractice Health is a neutral data infrastructure layer and does not endorse, promote, or disparage any brand, product, or provider. All findings are observational and subject to selection bias, confounding, and the limitations inherent in retrospective analysis. Not intended as a medical device. This is not intended to cure or treat any disease. Please consult your medical practitioner.
     </div>`;
 }
 
