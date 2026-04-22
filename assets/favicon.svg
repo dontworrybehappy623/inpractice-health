@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="InPractice Health">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@700&display=swap");
+        .bg { fill: #FFFFFF; }
+        .br { fill: none; stroke: #E5E7EB; stroke-width: 1; }
+        .tx {
+            fill: #111827;
+            font-family: "Outfit", "Inter", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+            font-weight: 700;
+            font-size: 36px;
+            letter-spacing: -1.5px;
+        }
+    </style>
+    <rect class="bg" x="0" y="0" width="64" height="64" rx="14" ry="14" />
+    <rect class="br" x="0.5" y="0.5" width="63" height="63" rx="13.5" ry="13.5" />
+    <text class="tx" x="32" y="44" text-anchor="middle">IP</text>
+</svg>
